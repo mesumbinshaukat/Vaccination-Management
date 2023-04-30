@@ -54,7 +54,7 @@
 <li class="side_menu_title">
 <span>Dashboard</span>
 </li>
-<li class="">
+<li>
 <a class="has-arrow" href="#" aria-expanded="false">
 
 <img src="img/menu-icon/1.svg" alt="">
@@ -68,14 +68,14 @@
 <li class="side_menu_title">
 <span>Applications</span>
 </li>
-<li class="">
+<li class="mm-active">
 <a class="has-arrow" href="#" aria-expanded="false">
 <img src="img/menu-icon/2.svg" alt="">
 <span>Pages</span>
 </a>
 <ul>
 <li><a href="login.html">Login</a></li>
-<li><a href="resister.html">Register</a></li>
+<li><a class="active" href="resister.html">Register</a></li>
 <li><a href="forgot_pass.html">Forgot Password</a></li>
 </ul>
 </li>
@@ -93,17 +93,17 @@
 <li class="side_menu_title">
 <span>Components</span>
 </li>
-<li class="mm-active">
+<li class="">
 <a class="has-arrow" href="#" aria-expanded="false">
 <img src="img/menu-icon/4.svg" alt="">
 <span>UI Component</span>
 </a>
 <ul>
-<li class="mm-active"><a href="#">Elements</a>
+<li><a href="#">Elements</a>
 <ul>
 <li><a href="buttons.html">Buttons</a></li>
 <li><a href="dropdown.html">Dropdowns</a></li>
-<li><a class="active" href="Badges.html">Badges</a></li>
+<li><a href="Badges.html">Badges</a></li>
 <li><a href="Loading_Indicators.html">Loading Indicators</a></li>
 </ul>
 </li>
@@ -166,7 +166,7 @@
 
 <section class="main_content dashboard_part">
 
-<div class="container-fluid g-0">
+<div class="container-fluid no-gutters">
 <div class="row">
 <div class="col-lg-12 p-0">
 <div class="header_iner d-flex justify-content-between align-items-center">
@@ -209,101 +209,6 @@
 </div>
 </div>
 </div>
-
-<div class="main_content_iner ">
-<div class="container-fluid p-0">
-<div class="row justify-content-center">
-<div class="col-lg-12">
-<div class="white_box mb_30">
-<div class="box_header ">
-<div class="main-title">
-<h3 class="mb-0">Badge 1</h3>
-</div>
-</div>
-<h1>Example heading <span class="badge bg-secondary">New</span></h1>
-<h2>Example heading <span class="badge bg-secondary">New</span></h2>
-<h4>Example heading <span class="badge bg-secondary">New</span></h4>
-<h5>Example heading <span class="badge bg-secondary">New</span></h5>
-<h6>Example heading <span class="badge bg-secondary">New</span></h6>
-</div>
-</div>
-<div class="col-md-6">
-<div class="white_box mb_30">
-<div class="box_header ">
-<div class="main-title">
-<h3 class="mb-0">Badge 2</h3>
-</div>
-</div>
-<button type="button" class="btn btn-primary">
-Notifications <span class="badge bg-light">4</span>
-</button>
-</div>
-</div>
-<div class="col-md-6">
-<div class="white_box mb_30">
-<div class="box_header ">
-<div class="main-title">
-<h3 class="mb-0">Contextual variations</h3>
-</div>
-</div>
-<button type="button" class="btn btn-primary">
-Profile <span class="badge bg-light">9</span>
-<span class="visually-hidden">unread messages</span>
-</button>
-</div>
-</div>
-<div class="col-md-12">
-<div class="white_box mb_30">
-<div class="box_header ">
-<div class="main-title">
-<h3 class="mb-0">Pill badges</h3>
-</div>
-</div>
-<span class="badge bg-primary">Primary</span>
-<span class="badge bg-secondary">Secondary</span>
-<span class="badge bg-success">Success</span>
-<span class="badge bg-danger">Danger</span>
-<span class="badge bg-warning">Warning</span>
-<span class="badge bg-info">Info</span>
-<span class="badge bg-light">Light</span>
-<span class="badge bg-dark">Dark</span>
-</div>
-</div>
-<div class="col-md-12">
-<div class="white_box mb_30">
-<div class="box_header ">
-<div class="main-title">
-<h3 class="mb-0">Links</h3>
-</div>
-</div>
-<span class="badge rounded-pilll bg-primary">Primary</span>
-<span class="badge rounded-pilll bg-secondary">Secondary</span>
-<span class="badge rounded-pilll bg-success">Success</span>
-<span class="badge rounded-pilll bg-danger">Danger</span>
-<span class="badge rounded-pilll bg-warning">Warning</span>
-<span class="badge rounded-pilll bg-info">Info</span>
-<span class="badge rounded-pilll bg-light">Light</span>
-<span class="badge rounded-pilll bg-dark">Dark</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="footer_part">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="footer_iner text-center">
-<p>2020 © Influence - Designed by <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Dashboard</a></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-
-
 <script src="js/jquery1-3.4.1.min.js"></script>
 
 <script src="js/popper1.min.js"></script>
@@ -345,9 +250,6 @@ Profile <span class="badge bg-light">9</span>
 <script src="vendors/apex_chart/apexcharts.js"></script>
 
 <script src="js/custom.js"></script>
-
-
-<script src="js/active_chart.js"></script>
 
 </body>
 </html>
