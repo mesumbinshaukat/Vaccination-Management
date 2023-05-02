@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['Uemail'];
     $password = $_POST['pass'];
     $travel = $_POST['travel'];
-    if (empty($name) && empty($email) && empty($password)) {
+    if (!empty($name) && !empty($email) && !empty($password)) {
 
         if ($travel == '1') {
             $hname = $_POST['hname'];
@@ -97,9 +97,9 @@ if (isset($_POST['submit'])) {
 
 
 <style>
-#hidden-panel {
-    display: none;
-}
+    #hidden-panel {
+        display: none;
+    }
 </style>
 
 <body class="crm_body_bg">
@@ -178,15 +178,15 @@ if (isset($_POST['submit'])) {
     </section>
 
     <script>
-    function showHide() {
-        let travelhistory = document.getElementById('travel')
+        function showHide() {
+            let travelhistory = document.getElementById('travel')
 
-        if (travelhistory.value == 1) {
-            document.getElementById('hidden-panel').style.display = 'block'
-        } else {
-            document.getElementById('hidden-panel').style.display = 'none'
+            if (travelhistory.value == 1) {
+                document.getElementById('hidden-panel').style.display = 'block'
+            } else {
+                document.getElementById('hidden-panel').style.display = 'none'
+            }
         }
-    }
     </script>
 
 
