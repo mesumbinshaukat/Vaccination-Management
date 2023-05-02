@@ -97,9 +97,9 @@ if (isset($_POST['submit'])) {
 
 
 <style>
-    #hidden-panel {
-        display: none;
-    }
+#hidden-panel {
+    display: none;
+}
 </style>
 
 <body class="crm_body_bg">
@@ -158,8 +158,10 @@ if (isset($_POST['submit'])) {
 
 
                                             </div>
-                                            <button class="btn btn-primary form-control mt-3" type="submit"
-                                                name="submit" value="submit">Submit</button>
+                                            <!-- <button class="btn btn-primary form-control mt-3" type="submit"
+                                                name="submit" value="submit">Submit</button> -->
+                                            <input type="submit" name="submit" value="SUBMIT"
+                                                class="btn btn-outline-warning">
 
                                     </div>
                                     </form>
@@ -176,15 +178,15 @@ if (isset($_POST['submit'])) {
     </section>
 
     <script>
-        function showHide() {
-            let travelhistory = document.getElementById('travel')
+    function showHide() {
+        let travelhistory = document.getElementById('travel')
 
-            if (travelhistory.value == 1) {
-                document.getElementById('hidden-panel').style.display = 'block'
-            } else {
-                document.getElementById('hidden-panel').style.display = 'none'
-            }
+        if (travelhistory.value == 1) {
+            document.getElementById('hidden-panel').style.display = 'block'
+        } else {
+            document.getElementById('hidden-panel').style.display = 'none'
         }
+    }
     </script>
 
 
