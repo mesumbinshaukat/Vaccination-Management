@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['Uemail'];
     $password = $_POST['pass'];
     $travel = $_POST['travel'];
-    if (empty($name) && empty($email) && empty($password) && empty($travel)) {
+    if (empty($name) && empty($email) && empty($password)) {
 
         if ($travel == '1') {
             $hname = $_POST['hname'];
