@@ -96,6 +96,7 @@ if (isset($_POST['submit'])) {
 #hidden-panel {
 	display: none;
 }
+
 </style>
 <body class="crm_body_bg">
 
@@ -109,11 +110,12 @@ if (isset($_POST['submit'])) {
 <div class="col-lg-12">
 <div class="white_box mb_30">
 <div class="row justify-content-center">
+    
 <div class="col-lg-6">
 
 <div class="modal-content cs_modal">
 <div class="modal-header">
-<h5 class="modal-title">Resister</h5>
+<h5 class="modal-title text-center">Resister For Vaccination</h5>
 </div>
 <div class="modal-body">
 <form method = "post"> 
@@ -126,17 +128,15 @@ if (isset($_POST['submit'])) {
 <div class="mb-3">
 <input type="password" class="form-control" name="pass" placeholder="Password">
 </div>
-<div class="cs_check_box">
-<input type="checkbox" id="check_box" class="common_checkbox">
 
 <div  name="drop-down" >
     <h6>Register AS Hospital</h6>
-    <select name="travel" id="travel" class="form-control" onChange=showHide()>
+    <select name="travel" id="travel" class="form-control  " onChange=showHide()>
        <option value="1">Yes</option>
        <option value="0" selected>No</option>
     </select>
  </div>
-</div>
+
 <div class="mt-4" name="hidden-panel" id="hidden-panel" >
    
     <input type="text" name="hname" id="country" class="form-control" placeholder="Hospital Name"/>
@@ -147,9 +147,9 @@ if (isset($_POST['submit'])) {
 
     
  </div>
+ <button class="btn btn-primary form-control mt-3" type="submit" name="submit" value="submit">Submit</button>
 
 </div>
-<input  class="btn btn-primary" type="submit" name="submit" value="submit">
 </form>
 </div>
 </div>
