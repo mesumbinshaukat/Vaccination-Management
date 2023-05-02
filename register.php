@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['Uemail'];
     $password = $_POST['pass'];
     $travel = $_POST['travel'];
-    if (!empty($name) && !empty($email) && !empty($password) && !empty($travel)) {
+    if (empty($name) && empty($email) && empty($password) && empty($travel)) {
 
         if ($travel == '1') {
             $hname = $_POST['hname'];
@@ -38,6 +38,8 @@ if (isset($_POST['submit'])) {
             }
 
         }
+    } else {
+        echo "<script>alert('Empty Data Can Not Be Registered')</script>";
     }
 
 
