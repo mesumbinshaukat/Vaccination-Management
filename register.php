@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
             $run_query = mysqli_query($conn, $insert_query);
 
             if ($run_query) {
-                header('location:login.html');
+                header('location:login.php');
                 exit();
             } else {
                 die("Error");
