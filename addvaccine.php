@@ -73,7 +73,9 @@ if (isset($_POST['submit'])) {
 
 <body class="">
 
-<h1 class ="text-center mb-5">Vaccsy</h1>
+<?php include('h_sidebar.php')  ?>
+
+
 
 
     <div class="main_content_iner ">
