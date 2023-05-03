@@ -60,7 +60,7 @@
 <span>Dashboard</span>
 </li>
 <li class="">
-<a class="has-arrow" href="#">
+<a class="has-arrow" href="addvaccine.php">
 
 
 
@@ -71,7 +71,7 @@
 
 <li class="">
 <a class="has-arrow" href="#" >
-<span>Update</span>
+<span>Update Patient</span>
 </a>
 </li>
 

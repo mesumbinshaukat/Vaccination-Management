@@ -97,14 +97,18 @@ if (isset($_POST['submit'])) {
 
 
 <style>
+    body{
+         background-color: lightblue;
+    }
     #hidden-panel {
         display: none;
     }
 </style>
 
-<body class="crm_body_bg">
+<body class="">
 
 
+<h1 class ="text-center mb-5">Vaccsy</h1>
 
 
 
@@ -112,33 +116,33 @@ if (isset($_POST['submit'])) {
         <div class="container-fluid p-0">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <div class="white_box mb_30">
+                    <div class=" mb_30">
                         <div class="row justify-content-center">
 
                             <div class="col-lg-6">
 
-                                <div class="modal-content cs_modal">
+                                <div class="modal-content ">
                                     <div class="modal-header">
-                                        <h5 class="modal-title text-center">Resister For Vaccination</h5>
+                                        <h3 class="modal-title text-center">Resister For Vaccination</h3>
                                     </div>
                                     <div class="modal-body">
                                         <form method="post">
                                             <div class="mb-3">
-                                                <input type="text" class="form-control" name="Uname"
+                                                <input type="text" class="form-control form-control-lg" name="Uname"
                                                     placeholder="Full Name">
                                             </div>
                                             <div class="mb-3">
-                                                <input type="text" class="form-control" name="Uemail"
+                                                <input type="text" class="form-control form-control-lg" name="Uemail"
                                                     placeholder="Enter your email">
                                             </div>
                                             <div class="mb-3">
-                                                <input type="password" class="form-control" name="pass"
+                                                <input type="password" class="form-control form-control-lg" name="pass"
                                                     placeholder="Password">
                                             </div>
 
                                             <div name="drop-down">
                                                 <h6>Register AS Hospital</h6>
-                                                <select name="travel" id="travel" class="form-control  "
+                                                <select name="travel" id="travel" class="form-control form-control-lg  "
                                                     onChange=showHide()>
                                                     <option value="1">Yes</option>
                                                     <option value="0" selected>No</option>
@@ -147,21 +151,21 @@ if (isset($_POST['submit'])) {
 
                                             <div class="mt-4" name="hidden-panel" id="hidden-panel">
 
-                                                <input type="text" name="hname" id="country" class="form-control"
+                                                <input type="text" name="hname" id="country" class="form-control form-control-lg"
                                                     placeholder="Hospital Name" />
 
-                                                <input type="text" name="haddress" id="country" class="form-control"
+                                                <input type="text" name="haddress" id="country" class="form-control form-control-lg mt-3"
                                                     placeholder="Hospital Address" />
 
-                                                <input type="text" name="hadminno" id="country" class="form-control"
+                                                <input type="text" name="hadminno" id="country" class="form-control form-control-lg mt-3"
                                                     placeholder="Hospital Admin_NO." />
 
 
                                             </div>
-                                            <!-- <button class="btn btn-primary form-control mt-3" type="submit"
-                                                name="submit" value="submit">Submit</button> -->
-                                            <input type="submit" name="submit" value="SUBMIT"
-                                                class="btn btn-outline-warning">
+                                            <button class="btn btn-primary form-control mt-3" type="submit"
+                                                name="submit" value="submit">Submit</button>
+                                            <!-- <input type="submit" name="submit" value="SUBMIT"
+                                                class="btn btn-outline-warning"> -->
 
                                     </div>
                                     </form>

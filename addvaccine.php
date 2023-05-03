@@ -1,54 +1,21 @@
-<?php
-session_start();
+<?php session_start(); 
 include('connection.php');
 
-
 if (isset($_POST['submit'])) {
-    $email = $_POST['ename'];
-    $password = $_POST['password'];
+    $vname = $_POST['Vname'];
+    $vtype = $_POST['Vtype'];
+    $hname = $_POST['Hname'];
+    $vqty= $_POST['Qavaialble'];
 
-    $travels = $_POST['as'];
+    $query = "INSERT INTO `addvaccine`(`Vname`, `Vtype`, `Hname`, `Vqry`) VALUES ('$vname','$vtype','$hname','$vqty')";
+    $runq = mysqli_query($conn , $query);
 
-
-    if ($travels == '0') {
-
-        $select_query = "SELECT * FROM `parent_register` WHERE Pemail = '$email'  ";
-        $run_squery = mysqli_query($conn, $select_query);
-
-        $row = mysqli_fetch_array($run_squery);
-
-
-        if ($password == $row["password"] && $email == $row["Pemail"]) {
-            $_SESSION['parent_name'] = $row['Pname'];
-            header('location:index.php');
-            exit();
-        }
-
-
-
-
-
-
-    } elseif ($travels == '1') {
-        $select_query2 = "SELECT * FROM `hospital_register` WHERE Hemail = '$email' ";
-        $run_squery2 = mysqli_query($conn, $select_query2);
-
-        $rows = mysqli_fetch_array($run_squery2);
-
-        if ($password == $rows["Hpass"] && $email == $rows["Hemail"]) {
-            $_SESSION['hospital_name'] = $rows['Hname'];
-            
-            header('location:index.php');
-            exit();
-
-        }
-
+    if ($runq) {
+        echo "<script>alert('vaccine added')</script>";
     }
 
-
-
-
 }
+
 
 
 ?>
@@ -119,37 +86,42 @@ if (isset($_POST['submit'])) {
 
                                 <div class="modal-content ">
                                     <div class="modal-header">
-                                        <h3 class="modal-title">Log in</h3>
+                                        <h3 class="modal-title">Add Vaccination</h3>
                                     </div>
                                     <div class="modal-body">
                                         <form method="post">
 
                                             <div class="mt-2">
-                                                <input type="text" name="ename" class="form-control form-control-lg "
-                                                    placeholder="Enter your email">
+                                                <input type="text" name="Vname" class="form-control form-control-lg "
+                                                    placeholder="Vaccine Name">
                                             </div>
-                                            <div class=" mt-3">
-                                                <input type="password" name="password"
-                                                    class="form-control form-control-lg" placeholder="Password">
+                                            <div  class= "mt-3">
+                                                <h6>Type of Vaccine:</h6>
+                                                <select name="Vtype" class="form-control form-control-lg">
+                                                    <option value="Live-attenuated">Live-attenuated vaccines </option>
+                                                    <option value="Inactivated " >Inactivated vaccines</option>
+                                                    <option value="Subunit" >Subunit vaccine</option>
+                                                    <option value="Toxoid" >Toxoid vaccines</option>
+                                                    <option value="mRNA" >mRNA vaccines</option>
+                                                    <option value="Viral vector" >Viral vector vaccines</option>
+                                                </select>
+                                            </div>
+                                            <input type="hidden"  name= "Hname" value =" <?php  echo $_SESSION['hospital_name'] ?>">
+
+
+                                            <div class="mt-3">
+                                                <input type="number" name="Qavaialble" class="form-control mt-3 form-control-lg "
+                                                    placeholder="Quantity Available">
                                             </div>
 
 
 
-                                            <select name="as" class="form-control form-control-lg mt-3 ">
-                                                <option value="1" class="text-dark">Hospital</option>
-                                                <option value="0" selected>Parent</option>
-                                            </select>
-
-
+                                        
                                             <button class="btn btn-primary form-control mt-4" type="submit"
                                                 name="submit" value="submit">Submit</button>
 
                                         </form>
-                                        <p>Need an account? <a href="register.php"> Sign Up</a></p>
-                                        <div class="text-center">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password"
-                                                data-bs-dismiss="modal" class="pass_forget_btn">Forget Password?</a>
-                                        </div>
+                                        
 
                                     </div>
                                 </div>
