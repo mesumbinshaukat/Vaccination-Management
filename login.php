@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
 
     if ($travels == '0') {
 
-        $select_query = "SELECT * FROM `parent_register` WHERE Pemail = '$email' OR password = '$password'";
+        $select_query = "SELECT * FROM `parent_register` WHERE Pemail = '$email' ";
         $run_squery = mysqli_query($conn, $select_query);
 
         $row = mysqli_fetch_array($run_squery);
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 
 
     } elseif ($travels == '1') {
-        $select_query2 = "SELECT * FROM `hospital_register` WHERE Hemail = '$email' OR Hpass = '$password'";
+        $select_query2 = "SELECT * FROM `hospital_register` WHERE Hemail = '$email'";
         $run_squery2 = mysqli_query($conn, $select_query2);
 
         $rows = mysqli_fetch_array($run_squery2);
