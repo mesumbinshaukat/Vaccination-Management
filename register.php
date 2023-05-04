@@ -8,34 +8,38 @@ if (isset($_POST['submit'])) {
     $email = $_POST['Uemail'];
     $password = $_POST['pass'];
     $travel = $_POST['travel'];
-    if (!empty($name) && !empty($email) && !empty($password)) {
 
+   
+    
+    if (!empty($name) && !empty($email) && !empty($password)) {
+    
         if ($travel == '1') {
             $hname = $_POST['hname'];
             $haddress = $_POST['haddress'];
             $hadminno = $_POST['hadminno'];
             $file_name =$_FILES['img']['name'];
             $temp_name =$_FILES['img']['tmp_name'];
-   
-                                           
+            $image = 'img/'.$file_name;
+            move_uploaded_file($temp_name,$image);
 
-         $image = 'img/'.$file_name;
-         move_uploaded_file($temp_name,$image);
-
+           
         
 
             $insert_query = "INSERT INTO `hospital_register`(`name`, `Hemail`, `Hpass`, `Hname`, `Haddress`, `Hnumber`, `Hlogo`) VALUES ('$name','$email','$password','$hname','$haddress','$hadminno','$image')";
-
             $run_query = mysqli_query($conn, $insert_query);
 
             if ($run_query) {
-                header('location:index.html');
+                header('location:login.php');
                 exit();
             } else {
                 die("Error");
             }
+        }
+        elseif ($travel == '0') {
 
-        } elseif ($travel == '0') {
+           
+        
+            
             $insert_query = "INSERT INTO `parent_register`(`Pname`, `Pemail`, `password`) VALUES ('$name','$email','$password')";
             $run_query = mysqli_query($conn, $insert_query);
 

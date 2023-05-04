@@ -16,13 +16,18 @@ if (isset($_POST['submit'])) {
         $run_squery = mysqli_query($conn, $select_query);
 
         $row = mysqli_fetch_array($run_squery);
-
-
-        if ($password == $row["password"] && $email == $row["Pemail"]) {
-            $_SESSION['parent_name'] = $row['Pname'];
-            header('location:index.php');
-            exit();
+      
+        if (mysqli_num_rows($run_squery) > 0) {
+            if ($password == $row["password"] && $email == $row["Pemail"]) {
+                $_SESSION['parent_name'] = $row['Pname'];
+                header('location:index.php');
+                exit();
+            }
+        }else{
+            echo "<script> alert('User not Registered')</script>";
         }
+
+        
 
 
 
@@ -34,7 +39,7 @@ if (isset($_POST['submit'])) {
         $run_squery2 = mysqli_query($conn, $select_query2);
 
         $rows = mysqli_fetch_array($run_squery2);
-
+        if (mysqli_num_rows($run_squery2) > 0) {
         if ($password == $rows["Hpass"] && $email == $rows["Hemail"]) {
             $_SESSION['hospital_name'] = $rows['Hname'];
             $_SESSION['hospital_logo'] = $rows['Hlogo'];
@@ -44,7 +49,12 @@ if (isset($_POST['submit'])) {
 
         }
 
+    } }
+    else{
+        echo "<script> alert('User not Registered')</script>";
     }
+
+    
 
 
 
