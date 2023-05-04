@@ -14,8 +14,17 @@ if (isset($_POST['submit'])) {
             $hname = $_POST['hname'];
             $haddress = $_POST['haddress'];
             $hadminno = $_POST['hadminno'];
+            $file_name =$_FILES['img']['name'];
+            $temp_name =$_FILES['img']['tmp_name'];
+   
+                                           
 
-            $insert_query = "INSERT INTO `hospital_register`(`name`, `Hemail`, `Hpass`, `Hname`, `Haddress`, `Hnumber`) VALUES ('$name','$email','$password','$hname','$haddress','$hadminno')";
+         $image = 'img/'.$file_name;
+         move_uploaded_file($temp_name,$image);
+
+        
+
+            $insert_query = "INSERT INTO `hospital_register`(`name`, `Hemail`, `Hpass`, `Hname`, `Haddress`, `Hnumber`, `Hlogo`) VALUES ('$name','$email','$password','$hname','$haddress','$hadminno','$image')";
 
             $run_query = mysqli_query($conn, $insert_query);
 
@@ -108,7 +117,7 @@ if (isset($_POST['submit'])) {
 <body class="">
 
 
-<h1 class ="text-center mb-5">Vaccsy</h1>
+<h3 class ="text-center">Vaccsy</h3>
 
 
 
@@ -126,7 +135,7 @@ if (isset($_POST['submit'])) {
                                         <h3 class="modal-title text-center">Resister For Vaccination</h3>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post">
+                                        <form method="post" enctype ="multipart/form-data">
                                             <div class="mb-3">
                                                 <input type="text" class="form-control form-control-lg" name="Uname"
                                                     placeholder="Full Name">
@@ -149,7 +158,7 @@ if (isset($_POST['submit'])) {
                                                 </select>
                                             </div>
 
-                                            <div class="mt-4" name="hidden-panel" id="hidden-panel">
+                                            <div class="mt-3" name="hidden-panel" id="hidden-panel">
 
                                                 <input type="text" name="hname" id="country" class="form-control form-control-lg"
                                                     placeholder="Hospital Name" />
@@ -159,6 +168,9 @@ if (isset($_POST['submit'])) {
 
                                                 <input type="text" name="hadminno" id="country" class="form-control form-control-lg mt-3"
                                                     placeholder="Hospital Admin_NO." />
+
+                                                    <input type="file" name="img" id="country" class="form-control form-control-lg mt-3"
+                                                     />
 
 
                                             </div>

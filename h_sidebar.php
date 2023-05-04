@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -115,13 +116,12 @@
 </li>
 </div>
 <div class="profile_info">
-<img src="img/client_img.png" alt="#">
+<img src="<?php echo $_SESSION['hospital_logo'] ?>" alt="#">
 <div class="profile_info_iner">
-<p>Neurologist </p>
-<h5>Dr. Robar Smith</h5>
+<p>Hospital</p>
+<h5><?php echo $_SESSION['hospital_name']?> </h5>
 <div class="profile_info_details">
 <a href="#">My Profile <i class="ti-user"></i></a>
-<a href="#">Settings <i class="ti-settings"></i></a>
 <a href="#">Log Out <i class="ti-shift-left"></i></a>
 </div>
 </div>

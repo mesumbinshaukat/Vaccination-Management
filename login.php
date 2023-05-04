@@ -37,6 +37,7 @@ if (isset($_POST['submit'])) {
 
         if ($password == $rows["Hpass"] && $email == $rows["Hemail"]) {
             $_SESSION['hospital_name'] = $rows['Hname'];
+            $_SESSION['hospital_logo'] = $rows['Hlogo'];
             
             header('location:index.php');
             exit();
