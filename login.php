@@ -51,6 +51,7 @@ if (isset($_POST['submit'])) {
         $rows = mysqli_fetch_array($run_squery2);
         if (mysqli_num_rows($run_squery2) > 0) {
             if ($password == $rows["Hpass"] && $email == $rows["Hemail"]) {
+                $_SESSION['hospital_id'] = $rows['id'];
                 $_SESSION['hospital_name'] = $rows['Hname'];
                 $_SESSION['hospital_logo'] = $rows['Hlogo'];
 

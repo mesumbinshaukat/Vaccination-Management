@@ -1,12 +1,9 @@
 <?php
+session_start();
 include('connection.php');
 
-$squery= ""
-
-
-
-
-
+$squery= "SELECT * FROM `addvaccine`";
+$q_run = mysqli_query($conn , $squery);
 ?>
 
 <!DOCTYPE html>
@@ -62,6 +59,22 @@ $squery= ""
 <body class="">
 
 <?php include('navbar.php')  ?>
+
+
+<div class="card-group">
+<?php while($row = mysqli_fetch_array($q_run)) { ?>
+
+  <div class="card">
+    <img src="<?php echo $row[''] ?>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+
+<?php }?>
+</div>
 
 
 

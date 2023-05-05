@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();
 include('connection.php');
 
 if (isset($_POST['submit'])) {
@@ -6,8 +6,10 @@ if (isset($_POST['submit'])) {
     $vtype = $_POST['Vtype'];
     $hname = $_POST['Hname'];
     $vqty= $_POST['Qavaialble'];
+    $h_id = $_POST['Hid'];
 
-    $query = "INSERT INTO `addvaccine`(`Vname`, `Vtype`, `Hname`, `Vqry`) VALUES ('$vname','$vtype','$hname','$vqty')";
+
+    $query = "INSERT INTO `addvaccine`(`Vname`, `Vtype`, `Hname`, `Vqty`,`H_id`) VALUES ('$vname','$vtype','$hname','$vqty','$h_id')";
     $runq = mysqli_query($conn , $query);
 
     if ($runq) {
@@ -109,6 +111,8 @@ if (isset($_POST['submit'])) {
                                                 </select>
                                             </div>
                                             <input type="hidden"  name= "Hname" value =" <?php  echo $_SESSION['hospital_name'] ?>">
+                                            <input type="hidden"  name= "Hid" value =" <?php  echo $_SESSION['hospital_id'] ?>">
+
 
 
                                             <div class="mt-3">

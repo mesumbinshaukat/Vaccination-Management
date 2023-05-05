@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -81,6 +80,11 @@
 <span>Hospital Info</span>
 </a>
 </li>
+<li class="">
+<a class="has-arrow" href="#">
+<span>All Vaccination</span>
+</a>
+</li>
 
 
 </ul>
@@ -119,9 +123,9 @@
 <img src="<?php echo $_SESSION['hospital_logo'] ?>" alt="#">
 <div class="profile_info_iner">
 <p>Hospital</p>
-<h5><?php echo $_SESSION['hospital_name']?> </h5>
+<h5><?php echo $_SESSION['hospital_name']?></h5>
 <div class="profile_info_details">
-<a href="#">My Profile <i class="ti-user"></i></a>
+<a href="#">My Profile<i class="ti-user"></i></a>
 <a href="logout.php">Log Out <i class="ti-shift-left"></i></a>
 </div>
 </div>
