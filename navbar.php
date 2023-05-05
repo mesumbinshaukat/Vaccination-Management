@@ -60,7 +60,7 @@
 <span>Dashboard</span>
 </li>
 <li class="">
-<a class="has-arrow" href="#">
+<a class="has-arrow" href="childinfo.php">
 
 
 
@@ -69,11 +69,6 @@
 
 </li>
 
-<li class="">
-<a class="has-arrow" href="#" >
-<span>Info</span>
-</a>
-</li>
 
 <li class="">
 <a class="has-arrow" href="#">

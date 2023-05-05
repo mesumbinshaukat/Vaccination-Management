@@ -9,8 +9,10 @@ if (isset($_POST['submit'])) {
     $password = $_POST['pass'];
     $travel = $_POST['travel'];
 
+    $query = mysqli_query($conn , "SELECT * FROM `parent_register` WHERE  Pemail = '$email'");
+    // $querys = mysqli_query($conn , "SELECT * FROM `hospital_register` WHERE  Hemail = '$email'");
+
    
-    
     if (!empty($name) && !empty($email) && !empty($password)) {
     
         if ($travel == '1') {
@@ -21,10 +23,6 @@ if (isset($_POST['submit'])) {
             $temp_name =$_FILES['img']['tmp_name'];
             $image = 'img/'.$file_name;
             move_uploaded_file($temp_name,$image);
-
-           
-        
-
             $insert_query = "INSERT INTO `hospital_register`(`name`, `Hemail`, `Hpass`, `Hname`, `Haddress`, `Hnumber`, `Hlogo`) VALUES ('$name','$email','$password','$hname','$haddress','$hadminno','$image')";
             $run_query = mysqli_query($conn, $insert_query);
 
@@ -35,11 +33,9 @@ if (isset($_POST['submit'])) {
                 die("Error");
             }
         }
-        elseif ($travel == '0') {
 
-           
-        
-            
+       
+        elseif ($travel == '0') {
             $insert_query = "INSERT INTO `parent_register`(`Pname`, `Pemail`, `password`) VALUES ('$name','$email','$password')";
             $run_query = mysqli_query($conn, $insert_query);
 
@@ -54,11 +50,7 @@ if (isset($_POST['submit'])) {
     } else {
         echo "<script>alert('Empty Data Can Not Be Registered')</script>";
     }
-
-
-
-
-}
+    }
 
 
 ?>
