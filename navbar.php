@@ -60,7 +60,7 @@
 <span>Dashboard</span>
 </li>
 <li class="">
-<a class="has-arrow" href="#">
+<a class="has-arrow" href="childinfo.php">
 
 
 
@@ -69,11 +69,6 @@
 
 </li>
 
-<li class="">
-<a class="has-arrow" href="#" >
-<span>Info</span>
-</a>
-</li>
 
 <li class="">
 <a class="has-arrow" href="#">
@@ -82,7 +77,7 @@
 </li>
 
 <li class="">
-<a class="has-arrow" href="#">
+<a class="has-arrow" href="allhospital.php">
 <span>Hospitals</span>
 </a>
 </li>
@@ -125,14 +120,14 @@
 </li>
 </div>
 <div class="profile_info">
-<img src="img/client_img.png" alt="#">
+<img src="img/" alt="#">
 <div class="profile_info_iner">
 <p>Neurologist </p>
 <h5>Dr. Robar Smith</h5>
 <div class="profile_info_details">
 <a href="#">My Profile <i class="ti-user"></i></a>
 <a href="#">Settings <i class="ti-settings"></i></a>
-<a href="#">Log Out <i class="ti-shift-left"></i></a>
+<a href="logout.php">Log Out <i class="ti-shift-left"></i></a>
 </div>
 </div>
 </div>

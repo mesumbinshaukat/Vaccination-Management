@@ -8,25 +8,34 @@ if (isset($_POST['submit'])) {
     $email = $_POST['Uemail'];
     $password = $_POST['pass'];
     $travel = $_POST['travel'];
-    if (!empty($name) && !empty($email) && !empty($password)) {
 
+    $query = mysqli_query($conn , "SELECT * FROM `parent_register` WHERE  Pemail = '$email'");
+    // $querys = mysqli_query($conn , "SELECT * FROM `hospital_register` WHERE  Hemail = '$email'");
+
+   
+    if (!empty($name) && !empty($email) && !empty($password)) {
+    
         if ($travel == '1') {
             $hname = $_POST['hname'];
             $haddress = $_POST['haddress'];
             $hadminno = $_POST['hadminno'];
-
-            $insert_query = "INSERT INTO `hospital_register`(`name`, `Hemail`, `Hpass`, `Hname`, `Haddress`, `Hnumber`) VALUES ('$name','$email','$password','$hname','$haddress','$hadminno')";
-
+            $file_name =$_FILES['img']['name'];
+            $temp_name =$_FILES['img']['tmp_name'];
+            $image = 'img/'.$file_name;
+            move_uploaded_file($temp_name,$image);
+            $insert_query = "INSERT INTO `hospital_register`(`name`, `Hemail`, `Hpass`, `Hname`, `Haddress`, `Hnumber`, `Hlogo`) VALUES ('$name','$email','$password','$hname','$haddress','$hadminno','$image')";
             $run_query = mysqli_query($conn, $insert_query);
 
             if ($run_query) {
-                header('location:index.html');
+                header('location:login.php');
                 exit();
             } else {
                 die("Error");
             }
+        }
 
-        } elseif ($travel == '0') {
+       
+        elseif ($travel == '0') {
             $insert_query = "INSERT INTO `parent_register`(`Pname`, `Pemail`, `password`) VALUES ('$name','$email','$password')";
             $run_query = mysqli_query($conn, $insert_query);
 
@@ -41,11 +50,7 @@ if (isset($_POST['submit'])) {
     } else {
         echo "<script>alert('Empty Data Can Not Be Registered')</script>";
     }
-
-
-
-
-}
+    }
 
 
 ?>
@@ -97,14 +102,18 @@ if (isset($_POST['submit'])) {
 
 
 <style>
+    body{
+         background-color: lightblue;
+    }
     #hidden-panel {
         display: none;
     }
 </style>
 
-<body class="crm_body_bg">
+<body class="">
 
 
+<h3 class ="text-center">Vaccsy</h3>
 
 
 
@@ -112,56 +121,59 @@ if (isset($_POST['submit'])) {
         <div class="container-fluid p-0">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <div class="white_box mb_30">
+                    <div class=" mb_30">
                         <div class="row justify-content-center">
 
                             <div class="col-lg-6">
 
-                                <div class="modal-content cs_modal">
+                                <div class="modal-content ">
                                     <div class="modal-header">
-                                        <h5 class="modal-title text-center">Resister For Vaccination</h5>
+                                        <h3 class="modal-title text-center">Resister For Vaccination</h3>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post">
+                                        <form method="post" enctype ="multipart/form-data">
                                             <div class="mb-3">
-                                                <input type="text" class="form-control" name="Uname"
+                                                <input type="text" class="form-control form-control-lg" name="Uname"
                                                     placeholder="Full Name">
                                             </div>
                                             <div class="mb-3">
-                                                <input type="text" class="form-control" name="Uemail"
+                                                <input type="text" class="form-control form-control-lg" name="Uemail"
                                                     placeholder="Enter your email">
                                             </div>
                                             <div class="mb-3">
-                                                <input type="password" class="form-control" name="pass"
+                                                <input type="password" class="form-control form-control-lg" name="pass"
                                                     placeholder="Password">
                                             </div>
 
                                             <div name="drop-down">
                                                 <h6>Register AS Hospital</h6>
-                                                <select name="travel" id="travel" class="form-control  "
+                                                <select name="travel" id="travel" class="form-control form-control-lg  "
                                                     onChange=showHide()>
                                                     <option value="1">Yes</option>
                                                     <option value="0" selected>No</option>
                                                 </select>
                                             </div>
 
-                                            <div class="mt-4" name="hidden-panel" id="hidden-panel">
+                                            <div class="mt-3" name="hidden-panel" id="hidden-panel">
 
-                                                <input type="text" name="hname" id="country" class="form-control"
+                                                <input type="text" name="hname" id="country" class="form-control form-control-lg"
                                                     placeholder="Hospital Name" />
 
-                                                <input type="text" name="haddress" id="country" class="form-control"
+                                                <input type="text" name="haddress" id="country" class="form-control form-control-lg mt-3"
                                                     placeholder="Hospital Address" />
 
-                                                <input type="text" name="hadminno" id="country" class="form-control"
+                                                <input type="text" name="hadminno" id="country" class="form-control form-control-lg mt-3"
                                                     placeholder="Hospital Admin_NO." />
+
+                                                    <input type="file" name="img" id="country" class="form-control form-control-lg mt-3"
+                                                     />
 
 
                                             </div>
-                                            <!-- <button class="btn btn-primary form-control mt-3" type="submit"
-                                                name="submit" value="submit">Submit</button> -->
-                                            <input type="submit" name="submit" value="SUBMIT"
-                                                class="btn btn-outline-warning">
+                                            <button class="btn btn-primary form-control mt-3" type="submit"
+                                                name="submit" value="submit">Submit</button>
+                                            <!-- <input type="submit" name="submit" value="SUBMIT"
+                                                class="btn btn-outline-warning"> -->
 
                                     </div>
                                     </form>

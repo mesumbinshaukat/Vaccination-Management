@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+
+
+<?php
+
+
+session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -50,7 +55,7 @@
     <?php include('navbar.php') ?>
     <?php } ?>
     <?php if (isset($_SESSION['hospital_name'])) { ?>
-    <?php include('h_sidebar.html') ?>
+    <?php include('h_sidebar.php') ?>
     <?php } ?>
 
 
