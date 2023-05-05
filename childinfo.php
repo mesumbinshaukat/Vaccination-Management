@@ -2,25 +2,29 @@
 include('connection.php');
 
 if (isset($_POST['submit'])) {
-    $vname = $_POST['Vname'];
-    $vtype = $_POST['Vtype'];
-    $hname = $_POST['Hname'];
-    $vqty= $_POST['Qavaialble'];
+    $cname = $_POST['Cname'];
+    $cgender = $_POST['gender'];
+    $c_age = $_POST['Cage'];
+    $any_disease= $_POST['disease'];
+    $p_id = $_POST['p_id'];
+    $s_query = "SELECT * FROM `childinfo` WHERE child_name = '$cname'";
+    $rquery = mysqli_query($conn , $s_query);
 
-    $query = "INSERT INTO `addvaccine`(`Vname`, `Vtype`, `Hname`, `Vqry`) VALUES ('$vname','$vtype','$hname','$vqty')";
+if (mysqli_num_rows($rquery) > 0) {
+        echo "<script>alert('info already added')</script>";
+    }else{
+    $query = "INSERT INTO `childinfo`( `child_name`, `gender`, `child_age`, `any_disease`, `P_id`) VALUES
+     ('$cname','$cgender','$c_age','$any_disease','$p_id')";
     $runq = mysqli_query($conn , $query);
 
     if ($runq) {
-        echo "<script>alert('vaccine added')</script>";
+        echo "<script>alert('child info added')</script>";
     }
-
 }
 
 
-
+}
 ?>
-
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -88,17 +92,16 @@ if (isset($_POST['submit'])) {
 
                                 <div class="modal-content ">
                                     <div class="modal-header">
-                                        <h3 class="modal-title">Add Vaccination</h3>
+                                        <h3 class="modal-title">Child Detail</h3>
                                     </div>
                                     <div class="modal-body">
                                         <form method="post">
 
                                             <div class="mt-2">
-                                                <input type="text" name="Cname" class="form-control form-control-lg "
+                                                <input type="text" name="Cname" required class="form-control form-control-lg "
                                                     placeholder="Child Name">
                                             </div>
                                             <div  class= "mt-3">
-                                                <h6>Gender</h6>
                                                 <select name="gender" class="form-control form-control-lg">
                                                     <option value="male">Male </option>
                                                     <option value="female">Female</option>
@@ -106,11 +109,11 @@ if (isset($_POST['submit'])) {
                                                 </select>
                                             </div>  
 
-                                            <input type="text"  name= "p_id" value =" <?php  echo $_SESSION['parent_id'] ?>">
+                                            <input type="hidden"  name= "p_id" value =" <?php  echo $_SESSION['parent_id'] ?>">
 
 
                                             <div class="mt-3">
-                                                <input type="number" name="Cage" class="form-control mt-3 form-control-lg "
+                                                <input type="number" min="1" max="15" name="Cage" class="form-control mt-3 form-control-lg "
                                                     placeholder="Child Age">
                                             </div>
                                             <div class="mt-3">

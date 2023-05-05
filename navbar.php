@@ -63,12 +63,14 @@
             </li>
             <li class="">
                 <a class="has-arrow" href="childinfo.php">
-
-
-
-                    <span>Information</span>
+                    <span>Add-info</span>
                 </a>
+            </li>
 
+            <li class="">
+                <a class="has-arrow" href="allchilds">
+                    <span>My-Childs</span>
+                </a>
             </li>
 
 
