@@ -9,48 +9,66 @@ if (isset($_POST['submit'])) {
     $password = $_POST['pass'];
     $travel = $_POST['travel'];
 
-    $query = mysqli_query($conn , "SELECT * FROM `parent_register` WHERE  Pemail = '$email'");
+    $query = mysqli_query($conn, "SELECT * FROM `parent_register` WHERE  Pemail = '$email'");
     // $querys = mysqli_query($conn , "SELECT * FROM `hospital_register` WHERE  Hemail = '$email'");
 
-   
+
     if (!empty($name) && !empty($email) && !empty($password)) {
-    
+
         if ($travel == '1') {
             $hname = $_POST['hname'];
             $haddress = $_POST['haddress'];
             $hadminno = $_POST['hadminno'];
-            $file_name =$_FILES['img']['name'];
-            $temp_name =$_FILES['img']['tmp_name'];
-            $image = 'img/'.$file_name;
-            move_uploaded_file($temp_name,$image);
-            $insert_query = "INSERT INTO `hospital_register`(`name`, `Hemail`, `Hpass`, `Hname`, `Haddress`, `Hnumber`, `Hlogo`) VALUES ('$name','$email','$password','$hname','$haddress','$hadminno','$image')";
-            $run_query = mysqli_query($conn, $insert_query);
+            $file_name = $_FILES['img']['name'];
+            $temp_name = $_FILES['img']['tmp_name'];
+            $image = 'img/' . $file_name;
+            $select_query = "SELECT * FROM `hospital_register` WHERE `Hemail` = '$email'";
+            $run_select_query = mysqli_query($conn, $select_query);
+            $fetch_details = mysqli_fetch_assoc($run_select_query);
+            $fetch_email = $fetch_details['Hemail'];
+            if ($fetch_email !== $email) {
+                move_uploaded_file($temp_name, $image);
+                $insert_query = "INSERT INTO `hospital_register`(`name`, `Hemail`, `Hpass`, `Hname`, `Haddress`, `Hnumber`, `Hlogo`) VALUES ('$name','$email','$password','$hname','$haddress','$hadminno','$image')";
+                $run_query = mysqli_query($conn, $insert_query);
 
-            if ($run_query) {
-                header('location:login.php');
-                exit();
+                if ($run_query) {
+                    header('location:login.php');
+                    exit();
+                } else {
+                    die("Error");
+                }
+
             } else {
-                die("Error");
+                echo "<script>alert('Email already registered, please try with different email.')</script>";
+                // die('Email Registered Already.');
             }
-        }
+        } elseif ($travel == '0') {
 
-       
-        elseif ($travel == '0') {
-            $insert_query = "INSERT INTO `parent_register`(`Pname`, `Pemail`, `password`) VALUES ('$name','$email','$password')";
-            $run_query = mysqli_query($conn, $insert_query);
+            $select_query = "SELECT * FROM `parent_register` WHERE `Pemail` = '$email'";
+            $run_select_query = mysqli_query($conn, $select_query);
+            $fetch_details = mysqli_fetch_assoc($run_select_query);
+            $fetch_email = $fetch_details['Pemail'];
+            if ($fetch_email !== $email) {
+                $insert_query = "INSERT INTO `parent_register`(`Pname`, `Pemail`, `password`) VALUES ('$name','$email','$password')";
+                $run_query = mysqli_query($conn, $insert_query);
 
-            if ($run_query) {
-                header('location:login.php');
-                exit();
+                if ($run_query) {
+                    header('location:login.php');
+                    exit();
+                } else {
+                    die("Error");
+                }
+
             } else {
-                die("Error");
+                echo "<script>alert('Email already registered, please try with different email.')</script>";
+                // die('Email Registered Already.');
             }
 
         }
     } else {
         echo "<script>alert('Empty Data Can Not Be Registered')</script>";
     }
-    }
+}
 
 
 ?>
@@ -102,18 +120,19 @@ if (isset($_POST['submit'])) {
 
 
 <style>
-    body{
-         background-color: lightblue;
-    }
-    #hidden-panel {
-        display: none;
-    }
+body {
+    background-color: lightblue;
+}
+
+#hidden-panel {
+    display: none;
+}
 </style>
 
 <body class="">
 
 
-<h3 class ="text-center">Vaccsy</h3>
+    <h3 class="text-center">Vaccsy</h3>
 
 
 
@@ -131,7 +150,7 @@ if (isset($_POST['submit'])) {
                                         <h3 class="modal-title text-center">Resister For Vaccination</h3>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" enctype ="multipart/form-data">
+                                        <form method="post" enctype="multipart/form-data">
                                             <div class="mb-3">
                                                 <input type="text" class="form-control form-control-lg" name="Uname"
                                                     placeholder="Full Name">
@@ -156,17 +175,19 @@ if (isset($_POST['submit'])) {
 
                                             <div class="mt-3" name="hidden-panel" id="hidden-panel">
 
-                                                <input type="text" name="hname" id="country" class="form-control form-control-lg"
-                                                    placeholder="Hospital Name" />
+                                                <input type="text" name="hname" id="country"
+                                                    class="form-control form-control-lg" placeholder="Hospital Name" />
 
-                                                <input type="text" name="haddress" id="country" class="form-control form-control-lg mt-3"
+                                                <input type="text" name="haddress" id="country"
+                                                    class="form-control form-control-lg mt-3"
                                                     placeholder="Hospital Address" />
 
-                                                <input type="text" name="hadminno" id="country" class="form-control form-control-lg mt-3"
+                                                <input type="text" name="hadminno" id="country"
+                                                    class="form-control form-control-lg mt-3"
                                                     placeholder="Hospital Admin_NO." />
 
-                                                    <input type="file" name="img" id="country" class="form-control form-control-lg mt-3"
-                                                     />
+                                                <input type="file" name="img" id="country"
+                                                    class="form-control form-control-lg mt-3" />
 
 
                                             </div>
@@ -190,15 +211,15 @@ if (isset($_POST['submit'])) {
     </section>
 
     <script>
-        function showHide() {
-            let travelhistory = document.getElementById('travel')
+    function showHide() {
+        let travelhistory = document.getElementById('travel')
 
-            if (travelhistory.value == 1) {
-                document.getElementById('hidden-panel').style.display = 'block'
-            } else {
-                document.getElementById('hidden-panel').style.display = 'none'
-            }
+        if (travelhistory.value == 1) {
+            document.getElementById('hidden-panel').style.display = 'block'
+        } else {
+            document.getElementById('hidden-panel').style.display = 'none'
         }
+    }
     </script>
 
 

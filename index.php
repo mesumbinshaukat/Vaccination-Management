@@ -1,9 +1,21 @@
-
-
 <?php
+session_start();
+
+$parent_id = $_SESSION['parent_id'];
+$hospital_name = $_SESSION['hospital_name'];
+
+if (!isset($hospital_name)) {
+    header('location:login.php');
+    exit();
+}
+
+if (!isset($parent_id)) {
+    header('location:login.php');
+    exit();
+}
 
 
-session_start(); ?>
+?>
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -52,10 +64,10 @@ session_start(); ?>
 
 
     <?php if (isset($_SESSION['parent_name'])) { ?>
-    <?php include('navbar.php') ?>
+        <?php include('navbar.php') ?>
     <?php } ?>
     <?php if (isset($_SESSION['hospital_name'])) { ?>
-    <?php include('h_sidebar.php') ?>
+        <?php include('h_sidebar.php') ?>
     <?php } ?>
 
 
