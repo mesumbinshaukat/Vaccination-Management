@@ -1,10 +1,18 @@
 <?php
 session_start();
 include('connection.php');
-$squery= "SELECT * FROM `hospital_register`";
-$q_run = mysqli_query($conn , $squery);
-?>
+$id =$_GET['id'];
+$select_query = "SELECT * FROM `hospital_register` WHERE id= '$id'";
+$run_query = mysqli_query($conn , $select_query);
+$fetch_data =mysqli_fetch_array($run_query);
 
+$select_querys = "SELECT * FROM `addvaccine` WHERE H_id= '$id'";
+$run_querys = mysqli_query($conn , $select_query);
+$fetch_datas =mysqli_fetch_array($run_querys);
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -59,37 +67,58 @@ $q_run = mysqli_query($conn , $squery);
 
 <?php include('navbar.php')  ?>
 
-  <div class="row row-cols-1 row-cols-md-2 g-4 container p-5">
-  <?php while($row = mysqli_fetch_array($q_run)) { ?>
 
-  <div class="col">
-    <div class="card">
-      <img src="<?php echo $row['Hlogo'] ?>" class="card-img-top text-center"  height="300"  alt="...">
-      <div class="card-body">
-      <a class="btn btn-success mt-2" href="hospvaccine.php?id=<?php echo $row['id'] ?>"><?php echo $row['Hname'] ?></a>
-        <h5 class="card-text">Address: <?php echo $row['Haddress'] ?></h5>
-        <h5 class="card-text">Number: <?php echo $row['Hnumber'] ?></h5>
-        
+    <div class="main_content_iner ">
+        <div class="container-fluid p-0">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="mb_30">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
 
-      </div>
-    </div>
-  </div>
-  <?php }?>
+                                <div class="modal-content ">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">Vaccination Available In : <span class = "fs-1"><?php echo $fetch_data['Hname']?>
+                                    
+                                    </span></h3>
+                                    </div>
+                                    <div class="modal-body">
+                                    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Vaccine Name</th>
+      <th scope="col">Vaccine Type</th>
+      <th scope="col">Booking</th>
 
-</div>
+    </tr>
+  </thead>
+  <tbody>
+    <?php while ($fetch_datas = mysqli_fetch_array($run_querys)
+) { ?>
+    <tr>
+      <td><h5><?php echo $fetch_datas['Vname']?></h5></td>
+      <td><h5><?php echo $fetch_datas['Vtype']?></h5></td>
+      <td><input type="submit" value= "Book Appointment" class = "btn btn-primary"></td>
+    </tr>
+<?php } ?>
+
+  </tbody>
+</table>
 
 
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-
-
-
-
-
-
-
-
-
+        </section>
 
 
 
