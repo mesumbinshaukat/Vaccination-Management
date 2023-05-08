@@ -69,7 +69,7 @@
             </li>
 
             <li class="">
-                <a class="has-arrow" href="allchilds">
+                <a class="has-arrow" href="allchilds.php">
                     <span>My-Childs</span>
                 </a>
             </li>
