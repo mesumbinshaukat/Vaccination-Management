@@ -6,10 +6,6 @@ $select_query = "SELECT * FROM `hospital_register` WHERE id= '$id'";
 $run_query = mysqli_query($conn , $select_query);
 $fetch_data =mysqli_fetch_array($run_query);
 
-$select_querys = "SELECT * FROM `addvaccine` WHERE H_id= '$id'";
-$run_querys = mysqli_query($conn , $select_query);
-$fetch_datas =mysqli_fetch_array($run_querys);
-
 
 
 ?>
@@ -93,12 +89,17 @@ $fetch_datas =mysqli_fetch_array($run_querys);
     </tr>
   </thead>
   <tbody>
-    <?php while ($fetch_datas = mysqli_fetch_array($run_querys)
+    <?php $select_querys = "SELECT * FROM `addvaccine` WHERE H_id= '$id'";
+$run_querys = mysqli_query($conn , $select_querys);
+;
+
+
+    while ($fetch_datas =mysqli_fetch_array($run_querys)
 ) { ?>
     <tr>
       <td><h5><?php echo $fetch_datas['Vname']?></h5></td>
       <td><h5><?php echo $fetch_datas['Vtype']?></h5></td>
-      <td><input type="submit" value= "Book Appointment" class = "btn btn-primary"></td>
+      <td><a class = "btn btn-success" href="book_slot.php?id=<?php echo $_SESSION['parent_id'] ?>">Book Slot</a></td>
     </tr>
 <?php } ?>
 

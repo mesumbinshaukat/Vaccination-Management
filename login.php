@@ -157,7 +157,7 @@ if (isset($_POST['submit'])) {
 
 
 
-                                            <select name="as" class="form-control form-control-lg mt-3 ">
+                                            <select name="as" class="form-select form-control form-control-lg mt-3 ">
                                                 <option value="1" class="text-dark">Hospital</option>
                                                 <option value="0" selected>Parent</option>
                                             </select>

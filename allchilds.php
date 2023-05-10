@@ -80,6 +80,8 @@ $q_run = mysqli_query($conn , $s_query);
         <h2 class ="p-3"> <span class = "fs-5">Age :</span>        <?php echo $row['child_age'] ?></h2>
         <h2 class ="p-3"> <span class = "fs-5">Any Disease :</span><?php echo $row['any_disease'] ?></h2>
         <a class="btn btn-success m-2" href="editchildinfo.php?id=<?php echo $row['id'] ?>">Edit info</a>
+        <a class="btn btn-danger m-2" href="deletechildinfo.php?id=<?php echo $row['id'] ?>">Delete</a>
+
 
         <hr>
     </div>
