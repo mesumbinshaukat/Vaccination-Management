@@ -8,7 +8,10 @@ $r_s_q_vac = mysqli_query($conn , $s_q_vac);
 $fetch = mysqli_fetch_array($r_s_q_vac);
 
 $s_query = "SELECT * FROM `childinfo` WHERE P_id = '$p_id'";
-$r_squery = mysqli_query($conn , $s_query);
+$r_squery = mysqli_query($conn , $s_query); 
+
+
+
 
 
 if (isset($_POST['submit'])) {
@@ -119,9 +122,8 @@ if (isset($_POST['submit'])) {
                                     <div class="modal-body">
                                         <form method="post">
 
-                                            <div name="drop-down">
+                                     
                                                 <h6>Child Name</h6>
-                                                
                                                 <select name="c_id"  class="form-select form-control form-control-lg  ">
                                                
                                                 <?php while($row = mysqli_fetch_array($r_squery)) {  ?>
@@ -129,18 +131,21 @@ if (isset($_POST['submit'])) {
                                                     <option value="<?php echo $row['id']?> "> <?php echo $row['child_name'] ;?></option>
                                                    <?php  } ?>
                                                 </select>
+                                            
+
+                                            <h6 class="mt-3">Appointment Date</h6>
+                                            <div >
+                                                <input type="date" required name="Adate" class="form-control  form-control-lg "
+                                                    >
                                             </div>
+                                                
+                                            <input type="hidden"  name= "v_id" value =" <?php  echo $fetch['id']?>">
+                                            <input type="hidden"  name= "h_id" value =" <?php  echo $fetch['H_id']?>">
 
-                                            <input type="text"  name= "v_id" value =" <?php  echo $fetch['id']?>">
-                                            <input type="text"  name= "h_id" value =" <?php  echo $fetch['H_id']?>">
-
-                                            <input type="text"  name= "p_id" value =" <?php  echo $p_id ?>">
+                                            <input type="hidden"  name= "p_id" value =" <?php  echo $p_id ?>">
 
 
-                                            <div class="mt-3">
-                                                <input type="date"  name="Adate" class="form-control mt-3 form-control-lg "
-                                                    placeholder="Child Age">
-                                            </div>
+                                           
                                             
 
                                             <button class="btn btn-primary form-control mt-4" type="submit"

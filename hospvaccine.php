@@ -6,6 +6,12 @@ $select_query = "SELECT * FROM `hospital_register` WHERE id= '$id'";
 $run_query = mysqli_query($conn , $select_query);
 $fetch_data =mysqli_fetch_array($run_query);
 
+$p_id = $_SESSION['parent_id'];
+
+
+$s_querys = "SELECT * FROM `childinfo` WHERE P_id = '$p_id'";
+$r_squerys = mysqli_query($conn , $s_querys);
+$fetch_array = mysqli_fetch_array($r_squerys);
 
 
 ?>
@@ -99,7 +105,21 @@ $run_querys = mysqli_query($conn , $select_querys);
     <tr>
       <td><h5><?php echo $fetch_datas['Vname']?></h5></td>
       <td><h5><?php echo $fetch_datas['Vtype']?></h5></td>
-      <td><a class = "btn btn-success" href="book_slot.php?id=<?php echo $fetch_datas['id']?>">Book Slot</a></td>
+      
+      <?php if (!empty($fetch_array['id'])) { ?>
+
+        <td><a class = "btn btn-success" href="book_slot.php?id=<?php echo $fetch_datas['id']?>">Book Slot</a></td>
+
+      
+      <?php } else { ?>
+
+        <td><a class = "btn btn-success" href="childinfo.php">Add Child Info</a></td>
+        
+        <?php } ?>
+
+
+
+
     </tr>
 <?php } ?>
 

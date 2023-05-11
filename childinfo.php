@@ -14,6 +14,10 @@ if (isset($_POST['submit'])) {
     $query = "INSERT INTO `childinfo`( `child_name`, `gender`, `child_age`, `any_disease`, `P_id`) VALUES
      ('$cname','$cgender','$c_age','$any_disease','$p_id')";
     $runq = mysqli_query($conn , $query);
+
+    if ($runq) {
+          header('location:allhospital.php');
+    }
     
   
 }
