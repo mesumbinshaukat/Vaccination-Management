@@ -91,7 +91,7 @@ if (isset($_POST['submit'])) {
                  
                                 <div class="modal-content ">
                                     <div class="modal-header">
-                                        <h3 class="modal-title">Child Detail</h3>
+                                        <h3 class="modal-title">Add Child Detail</h3>
                                     </div>
                                     <div class="modal-body">
                                         <form method="post">

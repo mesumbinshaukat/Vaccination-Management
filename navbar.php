@@ -60,13 +60,13 @@
             </li>
             <li class="">
                 <a class="has-arrow" href="childinfo.php">
-                    <span>Add-info</span>
+                    <span>Add-Child-info</span>
                 </a>
             </li>
 
             <li class="">
-                <a class="has-arrow" href="allchilds.php">
-                    <span>My-Childs</span>
+                <a class="has-arrow" href="allhospital.php">
+                    <span>Book-Hospitals</span>
                 </a>
             </li>
 
@@ -77,11 +77,10 @@
             </li>
 
             <li class="">
-                <a class="has-arrow" href="allhospital.php">
-                    <span>Hospitals</span>
+                <a class="has-arrow" href="allchilds.php">
+                    <span>My-Childs</span>
                 </a>
             </li>
-
             <li class="">
                 <a class="has-arrow" href="#">
                     <span>Report</span>

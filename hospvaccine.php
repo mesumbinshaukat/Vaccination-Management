@@ -99,7 +99,7 @@ $run_querys = mysqli_query($conn , $select_querys);
     <tr>
       <td><h5><?php echo $fetch_datas['Vname']?></h5></td>
       <td><h5><?php echo $fetch_datas['Vtype']?></h5></td>
-      <td><a class = "btn btn-success" href="book_slot.php?id=<?php echo $_SESSION['parent_id'] ?>">Book Slot</a></td>
+      <td><a class = "btn btn-success" href="book_slot.php?id=<?php echo $fetch_datas['id']?>">Book Slot</a></td>
     </tr>
 <?php } ?>
 
