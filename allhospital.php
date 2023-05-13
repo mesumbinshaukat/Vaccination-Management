@@ -3,6 +3,14 @@ session_start();
 include('connection.php');
 $squery= "SELECT * FROM `hospital_register`";
 $q_run = mysqli_query($conn , $squery);
+
+if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
+
+} else {
+    header('location:login.php');
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>

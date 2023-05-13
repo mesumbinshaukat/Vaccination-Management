@@ -21,6 +21,12 @@ if (isset($_POST['submit'])) {
     
   
 }
+if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
+
+} else {
+    header('location:login.php');
+    exit();
+}
 
 
 

@@ -5,7 +5,12 @@ $p_id = $_SESSION['parent_id'];
 $s_query = "SELECT * FROM `childinfo` WHERE P_id= '$p_id'";
 $q_run = mysqli_query($conn , $s_query);
 
+if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
+} else {
+    header('location:login.php');
+    exit();
+}
 
 
 

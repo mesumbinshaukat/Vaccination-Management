@@ -14,6 +14,13 @@ $r_squerys = mysqli_query($conn , $s_querys);
 $fetch_array = mysqli_fetch_array($r_squerys);
 
 
+if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
+
+} else {
+    header('location:login.php');
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
