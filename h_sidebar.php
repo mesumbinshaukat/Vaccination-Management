@@ -115,9 +115,6 @@
 <li>
 <a href="#"> <img src="img/icon/bell.svg" alt=""> </a>
 </li>
-<li>
-<a href="#"> <img src="img/icon/msg.svg" alt=""> </a>
-</li>
 </div>
 <div class="profile_info">
 <img src="<?php echo $_SESSION['hospital_logo'] ?>" alt="#">

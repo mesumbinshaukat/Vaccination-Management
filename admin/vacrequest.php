@@ -1,32 +1,18 @@
 <?php
 include('../connection.php');
-$fetch_query ="SELECT * FROM book_appointment";
-$run = mysqli_query($conn ,$fetch_query);
-$fetch_data = mysqli_fetch_array($run);
-$c_id = $fetch_data['c_id'];
-$p_id = $fetch_data['p_id'];
-$v_id = $fetch_data['v_id'];
-$h_id = $fetch_data['h_id'];
-
-
-$s_query = "SELECT * FROM `childinfo` WHERE id = '$c_id'";
-$run_q = mysqli_query($conn , $s_query); 
-
-$s1_query = "SELECT * FROM `addvaccine` WHERE id = '$v_id'";
-$run1_q = mysqli_query($conn , $s1_query); 
-
-$s2_query = "SELECT * FROM `parent_register` WHERE id = '$p_id'";
- $run2_q = mysqli_query($conn , $s2_query); 
-
-$s3_query = "SELECT * FROM `book_appointment` WHERE id = '$p_id'";
-$run3_q = mysqli_query($conn , $s3_query); 
-
- 
 
 
 
+$select_query = "SELECT * FROM book_appointment
+INNER JOIN childinfo
+ON  book_appointment.child_name =  childinfo.id   
 
+INNER JOIN parent_register
+ON   book_appointment.Pname = parent_register.id 
 
+INNER JOIN addvaccine
+ON   book_appointment.Vname = addvaccine.id";
+$run = mysqli_query($conn ,$select_query);
 
 ?>
 
@@ -42,54 +28,50 @@ $run3_q = mysqli_query($conn , $s3_query);
 
 </head>
 <body>
+
+<?php
+include('admin.php')
+?>
+
+
+
 <div class="container">
 <table class ="table table-bordered">
    
 <tr>
+
 <th>child name</th>
-<th>hospital id</th>
-<th>vaccination id</th>
-<th>Parent id</th>
+<th>Parent Name</th>
+<th>hospital Name</th>
+<th>vaccination Name</th>
 <th>Appointment Date</th>
+<th>Accept/Reject</th>
+
 
 
 
 
 </tr>
 <?php  
-        while ($row = mysqli_fetch_array($run_q)) { 
-            while ($row1 = mysqli_fetch_array($run1_q)) { 
-
-                while ($row2= mysqli_fetch_array($run2_q)) { 
-                    while ($row3= mysqli_fetch_array($run3_q)) { 
-
-
-             ?>
+        while ($row = mysqli_fetch_array($run)) { 
+        ?>
         
-        <tr>
+        <tr> 
+                
+                <td> <?php echo $row['id'] ?> </td>
                 <td> <?php echo $row['child_name'] ?> </td>
-                <td> <?php echo $row1['Hname'] ?> </td>
-                <td> <?php echo $row1['Vname'] ?> </td>
-                <td> <?php echo $row2['Pname'] ?> </td>
-                <td> <?php echo $row3['appointment_date'] ?> </td>
-
-
-                
-
-                <td> 
-                <a class="btn btn-success" href="updated.php?id=<?php echo $row['id'] ?>">Edit</a>
-                <a class="btn " href="accept.php?id=<?php echo $row['id'] ?>">Accept</a>
-      <a class="btn btn-danger" onclick="return confirm('are you sure? you want to delete')"
-       href="deleted.php?id=<?php echo $row['id'] ?>">Delete</a>
-       <a class="btn " href="reject.php?id=<?php echo $row['id'] ?>">Reject</a>
-
-                                  
-                
-                 </td>                                                                                  
+                <td> <?php echo $row['Pname'] ?> </td>
+                <td> <?php echo $row['Vname'] ?> </td>
+                <td> <?php echo $row['Hname'] ?> </td>
+                <td> <?php echo $row['appointment_date'] ?> </td>
+                <td><a class="btn btn-primary" href="accept.php?id=<?php echo $row['id'] ?>">Accept</a>
+                <a class="btn btn-danger" href="reject.php?id=<?php echo $row['id'] ?>">Reject</a></td>
             </tr>
-            <?php   }}}} ?>
+            
+            <?php   }?>
 
-
+           
+                
 
 
 
@@ -102,3 +84,6 @@ $run3_q = mysqli_query($conn , $s3_query);
     
 </body>
 </html>
+
+
+

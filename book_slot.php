@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 
 
     if (!empty($c_id)) {
-        $i_query = "INSERT INTO `book_appointment`( `appointment_date`, `p_id`, `h_id`, `v_id`, `c_id`) VALUES 
+        $i_query = "INSERT INTO `book_appointment`( `appointment_date`,  `Pname`, `Hname`, `Vname`, `child_name`) VALUES 
         ('$a_date','$p_id','$h_id','$v_id','$c_id')";
         $r_i_query = mysqli_query($conn , $i_query);
     
