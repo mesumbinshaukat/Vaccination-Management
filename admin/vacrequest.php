@@ -29,9 +29,7 @@ $run = mysqli_query($conn ,$select_query);
 </head>
 <body>
 
-<?php
-include('admin.php')
-?>
+<?php include('adminindex.php') ?>
 
 
 
