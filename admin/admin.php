@@ -1,4 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION['aemail']) || isset($_SESSION['apass'] )) {
 
+} else {
+    header('location:adminlogin.php');
+    exit();
+}
+
+
+?>
 </html>
 <!DOCTYPE html>
 <html lang="zxx">
