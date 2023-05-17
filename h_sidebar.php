@@ -70,7 +70,7 @@
 </li>
 
 <li class="">
-<a class="has-arrow" href="#" >
+<a class="has-arrow" href="updatechild.php" >
 <span>Update Patient</span>
 </a>
 </li>

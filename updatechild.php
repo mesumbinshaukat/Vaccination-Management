@@ -1,15 +1,6 @@
 <?php
-include('../connection.php');
-
-
+include('connection.php');
 session_start();
-if (isset($_SESSION['aemail']) || isset($_SESSION['apass'] )) {
-
-} else {
-    header('location:adminlogin.php');
-    exit();
-}
-
 
 
 $select_query = "SELECT * FROM book_appointment
@@ -38,7 +29,7 @@ $run = mysqli_query($conn ,$select_query);
 </head>
 <body>
 
-<?php include('adminindex.php') ?>
+<?php include('h_sidebar.php') ?>
 
 
 
@@ -66,22 +57,20 @@ $run = mysqli_query($conn ,$select_query);
 
             if ($row['request'] == '1') {
         ?>
-        
+           <tr> 
+                
+                <td> <?php echo $row['child_name'] ?> </td>
+                <td> <?php echo $row['Pname'] ?> </td>
+                <td> <?php echo $row['Vname'] ?> </td>
+                <td> <?php echo $row['Hname'] ?> </td>
+                <td> <?php echo $row['appointment_date'] ?> </td>
+                <td><a class="btn btn-primary" href="vaccinated.php?id=<?php echo $row['id'] ?>">Vaccinated</a>
+                <a class="btn btn-danger" href="notvaccianted.php?id=<?php echo $row['id'] ?>">NoT-vaccinated</a></td>
+            </tr>
       
             
-            <?php  }else { ?>
-                  <tr> 
-                
-                  <td> <?php echo $row['child_name'] ?> </td>
-                  <td> <?php echo $row['Pname'] ?> </td>
-                  <td> <?php echo $row['Vname'] ?> </td>
-                  <td> <?php echo $row['Hname'] ?> </td>
-                  <td> <?php echo $row['appointment_date'] ?> </td>
-                  <td><a class="btn btn-primary" href="acceptereq.php?id=<?php echo $row['id'] ?>">Accept</a>
-                  <a class="btn btn-danger" href="rejectreq.php?id=<?php echo $row['id'] ?>">Reject</a></td>
-              </tr>
-           <?php }
-         }?>
+            <?php 
+         } }?>
 
            
                 
@@ -97,6 +86,3 @@ $run = mysqli_query($conn ,$select_query);
     
 </body>
 </html>
-
-
-
