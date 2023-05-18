@@ -76,7 +76,7 @@
 </li>
 
 <li class="">
-<a class="has-arrow" href="#">
+<a class="has-arrow" href="hospdetail.php">
 <span>Hospital Info</span>
 </a>
 </li>
@@ -100,16 +100,7 @@
 <div class="sidebar_icon d-lg-none">
 <i class="ti-menu"></i>
 </div>
-<div class="serach_field-area">
-<div class="search_inner">
-<form action="#">
-<div class="search_field">
-<input type="text" placeholder="Search here...">
-</div>
-<button type="submit"> <img src="img/icon/icon_search.svg" alt=""> </button>
-</form>
-</div>
-</div>
+<h1><b><?php echo strtoupper($_SESSION['hospital_name'])?> </b><span>Panel</span> </h1> 
 <div class="header_right d-flex justify-content-between align-items-center">
 <div class="header_notification_warp d-flex align-items-center">
 <li>
