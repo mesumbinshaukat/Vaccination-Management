@@ -71,14 +71,15 @@ $run = mysqli_query($conn ,$select_query);
             
             <?php  }else { ?>
                   <tr> 
+                  <td> <?php echo $row['b_id'] ?> </td>
                 
                   <td> <?php echo $row['child_name'] ?> </td>
                   <td> <?php echo $row['Pname'] ?> </td>
                   <td> <?php echo $row['Vname'] ?> </td>
                   <td> <?php echo $row['Hname'] ?> </td>
                   <td> <?php echo $row['appointment_date'] ?> </td>
-                  <td><a class="btn btn-primary" href="acceptereq.php?id=<?php echo $row['id'] ?>">Accept</a>
-                  <a class="btn btn-danger" href="rejectreq.php?id=<?php echo $row['id'] ?>">Reject</a></td>
+                  <td><a class="btn btn-primary" href="acceptereq.php?id=<?php echo $row['b_id'] ?>">Accept</a>
+                  <a class="btn btn-danger" href="rejectreq.php?id=<?php echo $row['b_id'] ?>">Reject</a></td>
               </tr>
            <?php }
          }?>

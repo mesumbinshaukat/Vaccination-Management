@@ -55,22 +55,27 @@ $run = mysqli_query($conn ,$select_query);
 <?php  
         while ($row = mysqli_fetch_array($run)) { 
 
-            if ($row['request'] == '1') {
-        ?>
-           <tr> 
+            if ($row['request'] == '0' OR  $row['request'] == '' OR $row['vaccinated'] == '1') {
                 
-                <td> <?php echo $row['child_name'] ?> </td>
-                <td> <?php echo $row['Pname'] ?> </td>
-                <td> <?php echo $row['Vname'] ?> </td>
-                <td> <?php echo $row['Hname'] ?> </td>
-                <td> <?php echo $row['appointment_date'] ?> </td>
-                <td><a class="btn btn-primary" href="vaccinated.php?id=<?php echo $row['id'] ?>">Vaccinated</a>
-                <a class="btn btn-danger" href="notvaccianted.php?id=<?php echo $row['id'] ?>">NoT-vaccinated</a></td>
-            </tr>
+                    
+               
+        ?>
+         
       
             
             <?php 
-         } }?>
+         } else { ?>
+            <tr> 
+                
+            <td> <?php echo $row['child_name'] ?> </td>
+            <td> <?php echo $row['Pname'] ?> </td>
+            <td> <?php echo $row['Vname'] ?> </td>
+            <td> <?php echo $row['Hname'] ?> </td>
+            <td> <?php echo $row['appointment_date'] ?> </td>
+            <td><a class="btn btn-primary" href="vaccinated.php?id=<?php echo $row['b_id'] ?>">Vaccinated</a>
+            <a class="btn btn-danger" href="notvaccinated.php?id=<?php echo $row['b_id'] ?>">Not-Vaccianted</a></td>
+        </tr>
+      <?php    }}?>
 
            
                 
