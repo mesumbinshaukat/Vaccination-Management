@@ -56,7 +56,7 @@
         <ul id="sidebar_menu">
             
             <li class="side_menu_title">
-                <span>Dashboard</span>
+              <a href="index.php"><span>Dashboard</span></a>  
             </li>
             <li class="">
                 <a class="has-arrow" href="childinfo.php">
@@ -108,7 +108,7 @@
                             <div class="search_inner">
                                 <form action="#">
                                     <div class="search_field">
-                                        <input type="text" placeholder="Search here...">
+                                        <input type="text" placeholder="Search here" id="ID_search" >
                                     </div>
                                     <button type="submit"> <img src="img/icon/icon_search.svg" alt=""> </button>
                                 </form>
@@ -191,6 +191,32 @@
         <script src="vendors/apex_chart/apexcharts.js"></script>
 
         <script src="js/custom.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+
+
+        <script>
+                $('#ID_search').keyup(function() {
+            var search_word = $('#ID_search').val();
+            $.ajax({
+                url: 'livesearch.php',
+                type: 'POST',
+                data: {
+                    data_search: search_word
+                },
+                success: function(data) {
+                    $('#ID_table').html(data);
+                }
+            })
+
+
+        })
+
+
+    
+        </script>
+
 
 </body>
 

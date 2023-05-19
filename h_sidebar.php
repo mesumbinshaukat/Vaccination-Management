@@ -103,9 +103,7 @@
 <h1><b><?php echo strtoupper($_SESSION['hospital_name'])?> </b><span>Panel</span> </h1> 
 <div class="header_right d-flex justify-content-between align-items-center">
 <div class="header_notification_warp d-flex align-items-center">
-<li>
-<a href="#"> <img src="img/icon/bell.svg" alt=""> </a>
-</li>
+
 </div>
 <div class="profile_info">
 <img src="<?php echo $_SESSION['hospital_logo'] ?>" alt="#">
@@ -113,7 +111,7 @@
 <p>Hospital</p>
 <h5><?php echo $_SESSION['hospital_name']?></h5>
 <div class="profile_info_details">
-<a href="#">My Profile<i class="ti-user"></i></a>
+<a href="hospdetail.php">My Profile<i class="ti-user"></i></a>
 <a href="logout.php">Log Out <i class="ti-shift-left"></i></a>
 </div>
 </div>
