@@ -57,7 +57,7 @@
 
 
 <li class="side_menu_title">
-<span>Dashboard</span>
+<a href="index.php"><span>Dashboard</span></a>
 </li>
 <li class="">
 <a class="has-arrow" href="addvaccine.php">
@@ -81,8 +81,8 @@
 </a>
 </li>
 <li class="">
-<a class="has-arrow" href="#">
-<span>All Vaccination</span>
+<a class="has-arrow" href="allvaccine.php">
+<span>Available Vaccination</span>
 </a>
 </li>
 

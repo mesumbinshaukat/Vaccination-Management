@@ -66,15 +66,15 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
 </head>
 <style>
-    body{
-         background-color: lightblue;
-    }
+body {
+    background-color: lightblue;
+}
 </style>
 
 
 <body class="">
 
-<?php include('h_sidebar.php')  ?>
+    <?php include('h_sidebar.php')  ?>
 
 
 
@@ -92,9 +92,33 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
                                         <h3 class="modal-title">Hospital Information</h3>
                                     </div>
                                     <div class="modal-body">
-                                 
-                                        
-                                        
+                                       <h4>Hospital Name : <?php echo $fetch['Hname'] ?></h4>
+                                       <hr>
+                                       <h4>Hospital Address : <?php echo $fetch['Haddress'] ?></h4>
+                                       <hr>
+                                       <h4>Hospital Number : <?php echo $fetch['Hnumber'] ?></h4>
+                                       <hr>
+                                       <h4>Admin Name : <?php echo $fetch['name'] ?></h4>
+                                       <hr>
+                                       <h4>Admin Email : <?php echo $fetch['Hemail'] ?></h4>
+                                       
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                                     </div>
                                 </div>
