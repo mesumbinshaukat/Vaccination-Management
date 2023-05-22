@@ -1,8 +1,28 @@
+<?php
+include('connection.php');
+$p_id =  $_SESSION['parent_id'];
+$s_qury = "SELECT * FROM `book_appointment` WHERE Pname = '$p_id'";
+$run_it = mysqli_query($conn , $s_qury);
+
+$fetch_data = mysqli_fetch_array($run_it);
+
+$s_q = "SELECT * FROM `book_appointment` WHERE Pname = '$p_id'";
+$run = mysqli_query($conn , $s_q);
+
+
+
+
+?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
+
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -40,6 +60,20 @@
 
     <link rel="stylesheet" href="css/style1.css" />
     <link rel="stylesheet" href="css/colors/default.css" id="colorSkinCSS">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+    <style>
+    body {
+        background-color: light-grey;
+    }
+    </style>
+
 </head>
 
 <body class="crm_body_bg">
@@ -48,49 +82,47 @@
 
     <nav class="sidebar">
         <div class="logo d-flex justify-content-between">
-            <a href="index.html"><img src="img/logo3.png" alt=""></a>
+            <img src="img/logo3.png" alt="">
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
         </div>
         <ul id="sidebar_menu">
-            
+
             <li class="side_menu_title">
-              <a href="index.php"><span>Dashboard</span></a>  
-            </li>
-            <li class="">
-                <a class="has-arrow" href="childinfo.php">
-                    <span>Add-Child-info</span>
-                </a>
+                <a href="index.php" style="text-decoration: none;"><span>Dashboard</span></a>
             </li>
 
-            <li class="">
-                <a class="has-arrow" href="allhospital.php">
-                    <span>Book-Hospitals</span>
-                </a>
-            </li>
+            <a class="has-arrow" href="childinfo.php" style="text-decoration: none;">
+                <li class="fs-5 mt-4 "><span style="color: black;">Add-Child-info</span></li>
+            </a>
 
-            <li class="">
-                <a class="has-arrow" href="#">
-                    <span>My-Appointment</span>
-                </a>
-            </li>
+            <a class="has-arrow" href="allhospital.php" style="text-decoration: none;">
+                <li class="fs-5 mt-4 "><span style="color: black;">Book-Hospitals</span></li>
+            </a>
 
-            <li class="">
-                <a class="has-arrow" href="allchilds.php">
-                    <span>My-Childs</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="has-arrow" href="#">
-                    <span>Report</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="logout.php">
-                    <span>Logout</span>
-                </a>
-            </li>
+
+
+            <a class="has-arrow" href="#" style="text-decoration: none;">
+                <li class="fs-5 mt-4 "><span style="color: black;">My-Appointment</span></li>
+            </a>
+
+
+
+            <a class="has-arrow" href="allchilds.php" style="text-decoration: none;">
+                <li class="fs-5 mt-4 "><span style="color: black;">My-Childs</span></li>
+            </a>
+
+
+            <a class="has-arrow" href="#" style="text-decoration: none;">
+                <li class="mt-4  fs-5"> <span style="color: black;">Report</span></li>
+            </a>
+
+
+            <a class="has-arrow" href="logout.php" style="text-decoration: none;">
+                <li class=" mt-4 fs-5"><span style="color: black;">Logout</span></li>
+            </a>
+
         </ul>
     </nav>
 
@@ -108,32 +140,59 @@
                             <div class="search_inner">
                                 <form action="#">
                                     <div class="search_field">
-                                        <input type="text" placeholder="Search here" id="ID_search" >
+                                        <input type="text" placeholder="Search here" id="ID_search">
                                     </div>
                                     <button type="submit"> <img src="img/icon/icon_search.svg" alt=""> </button>
                                 </form>
                             </div>
                         </div>
+
+
                         <div class="header_right d-flex justify-content-between align-items-center">
+                            <div class=" header_notification_warp d-flex align-items-center">
 
 
+                            <div class="profile_info">
+                                <?php 
+                            $date_now = date("Y-m-d");
+                            $a_date =$fetch_data['appointment_date']; ?>
+                              <?php  if (strtotime($date_now) <  strtotime($a_date)) { ?>
+
+                                    <img class="w-50" src="img/icon/notification.png" alt="#">
+                                    <div class="profile_info_iner">
+                                        <?php while ($row = mysqli_fetch_array($run)) {
+                                             $app_date =$row['appointment_date'];
+                                             $date_nows = date("Y-m-d");
+                                            if (strtotime($date_nows) <  strtotime($app_date)) { ?>
+                                             <h5><?php echo $row['appointment_date'] ?></h5>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                      
+                            <?php } } }else { ?>
+                                <img class="w-50" src="img/icon/bell.png" alt="#">
+                                <div class="profile_info_iner">
+                                    <h5>No Notification </h5>
+                                    <?php }?>
+                                </div>
                             </div>
+                        </div>
+                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             <div class="profile_info">
                                 <img src="img/pfp.jpg" alt="#">
                                 <div class="profile_info_iner">
@@ -197,7 +256,7 @@
 
 
         <script>
-                $('#ID_search').keyup(function() {
+        $('#ID_search').keyup(function() {
             var search_word = $('#ID_search').val();
             $.ajax({
                 url: 'livesearch.php',
@@ -212,9 +271,6 @@
 
 
         })
-
-
-    
         </script>
 
 

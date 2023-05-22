@@ -101,10 +101,7 @@
 <i class="ti-menu"></i>
 </div>
 <h1><b><?php echo strtoupper($_SESSION['hospital_name'])?> </b><span>Panel</span> </h1> 
-<div class="header_right d-flex justify-content-between align-items-center">
-<div class="header_notification_warp d-flex align-items-center">
 
-</div>
 <div class="profile_info">
 <img src="<?php echo $_SESSION['hospital_logo'] ?>" alt="#">
 <div class="profile_info_iner">
