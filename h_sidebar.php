@@ -38,6 +38,14 @@
 
 <link rel="stylesheet" href="css/style1.css" />
 <link rel="stylesheet" href="css/colors/default.css" id="colorSkinCSS">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
 </head>
 <body class="crm_body_bg">
 
@@ -45,7 +53,7 @@
 
 <nav class="sidebar">
 <div class="logo d-flex justify-content-between">
-<a href="index.html"><img src="img/logo3.png" alt=""></a>
+<img src="img/logo3.png" alt="">
 <div class="sidebar_close_icon d-lg-none">
 <i class="ti-close"></i>
 </div>
@@ -57,34 +65,39 @@
 
 
 <li class="side_menu_title">
-<a href="index.php"><span>Dashboard</span></a>
+<a href="index.php" style="text-decoration: none;"><span>Dashboard</span></a>
 </li>
-<li class="">
-<a class="has-arrow" href="addvaccine.php">
+
+<a class="has-arrow" href="addvaccine.php"style="text-decoration: none;">
+<li class=" mt-4 fs-5"><span style="color: black;">Add Vaccination</span></li>
 
 
-
-<span>Add Vaccination</span>
 </a>
 
-</li>
 
-<li class="">
-<a class="has-arrow" href="updatechild.php" >
-<span>Update Patient</span>
-</a>
-</li>
 
-<li class="">
-<a class="has-arrow" href="hospdetail.php">
-<span>Hospital Info</span>
+
+<a class="has-arrow" href="updatechild.php" style="text-decoration: none;">
+<li class=" mt-4 fs-5"><span style="color: black;">Update Patient</span></li>
+
+
 </a>
-</li>
-<li class="">
-<a class="has-arrow" href="allvaccine.php">
-<span>Available Vaccination</span>
+
+
+
+<a class="has-arrow" href="hospdetail.php"style="text-decoration: none;">
+<li class=" mt-4 fs-5"><span style="color: black;">Hospital Info</span></li>
+
+
+
 </a>
-</li>
+
+<a class="has-arrow" href="allvaccine.php"style="text-decoration: none;">
+
+<li class=" mt-4 fs-5"><span style="color: black;">Available Vaccination</span></li>
+
+</a>
+
 
 
 </ul>

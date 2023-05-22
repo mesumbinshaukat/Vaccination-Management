@@ -87,9 +87,9 @@ body {
                         <div class="row justify-content-center">
                             <div class="col-lg-6">
 
-                                <div class="modal-content ">
-                                    <div class="modal-header">
-                                        <h3 class="modal-title">Hospital Information</h3>
+                                <div class="modal-content border border-primary p-5">
+                                    <div class="modal-header text-center d-flex justify-content-center mb-4 ">
+                                        <h3 class="modal-title "> <b> Hospital Information</b></h3>
                                     </div>
                                     <div class="modal-body">
                                        <h4>Hospital Name : <?php echo $fetch['Hname'] ?></h4>

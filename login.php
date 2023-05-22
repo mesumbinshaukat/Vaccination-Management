@@ -117,18 +117,32 @@ if (isset($_POST['submit'])) {
 
     <link rel="stylesheet" href="css/style1.css" />
     <link rel="stylesheet" href="css/colors/default.css" id="colorSkinCSS">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
 
 </head>
 <style>
-    body {
-        background-color: lightblue;
-    }
+body {
+
+    background-image: url("./img/backg.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden; 
+}
+.logo {
+    width: 200px;
+}
 </style>
 
 
 <body class="">
-
-    <h1 class="text-center mb-5">Vaccsy</h1>
+<div class="div text-center mb-5 border "><img class = "logo " src="./img/logo3.png" alt=""></div>
 
 
     <div class="main_content_iner ">
@@ -141,36 +155,35 @@ if (isset($_POST['submit'])) {
 
                                 <div class="modal-content ">
                                     <div class="modal-header">
-                                        <h3 class="modal-title">Log in</h3>
+                                        <h3 class="modal-title"> <b>Log in</b> </h3>
                                     </div>
                                     <div class="modal-body">
                                         <form method="post">
 
                                             <div class="mt-2">
-                                                <input type="text" name="ename" class="form-control form-control-lg "
+                                                <input type="text" name="ename" class="border border-3 border-dark form-control form-control-lg "
                                                     placeholder="Enter your email">
                                             </div>
                                             <div class=" mt-3">
                                                 <input type="password" name="password"
-                                                    class="form-control form-control-lg" placeholder="Password">
+                                                    class="border border-3 border-dark form-control form-control-lg" placeholder="Password">
                                             </div>
 
 
 
-                                            <select name="as" class="form-select form-control form-control-lg mt-3 ">
+                                            <select name="as" class="border border-3 border-dark form-select form-control form-control-lg mt-3 ">
                                                 <option value="1" class="text-dark">Hospital</option>
                                                 <option value="0" selected>Parent</option>
                                             </select>
 
 
-                                            <button class="btn btn-primary form-control mt-4" type="submit"
+                                            <button class="btn btn-primary form-control form-control-lg mt-4" type="submit"
                                                 name="submit" value="submit">Submit</button>
 
                                         </form>
-                                        <p>Need an account? <a href="register.php"> Sign Up</a></p>
+                                       <h5 class = "mt-1"> <b> Need an account? <a href="register.php"> Sign Up</a> </b></h5> 
                                         <div class="text-center">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password"
-                                                data-bs-dismiss="modal" class="pass_forget_btn">Forget Password?</a>
+                                            
                                         </div>
 
                                     </div>

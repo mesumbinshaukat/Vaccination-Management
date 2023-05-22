@@ -8,7 +8,7 @@ $fetch_data = mysqli_fetch_array($run_it);
 
 $s_q = "SELECT *
 FROM book_appointment
-WHERE appointment_date > date_sub(now(), interval 1 week) AND Pname = '$p_id'";
+WHERE appointment_date >= date_sub(now(), interval 1 week) AND Pname = '$p_id'";
 
 $run = mysqli_query($conn , $s_q);
 
@@ -157,10 +157,10 @@ $run = mysqli_query($conn , $s_q);
                                 <?php 
                             $date_now = date("Y-m-d");
                              ?>
-                              <?php if (isset($fetch_data['appointment_date'])) {
+                              <?php if (isset($fetch_data['appointment_date']) AND $fetch_data['request'] == '1' ) {
                                if (strtotime($date_now) <  strtotime($fetch_data['appointment_date'])) {
                                 ?>
-                                <img class="w-50" src="img/icon/notification.png" alt="#">
+                                <img class="w-50" src="img/icon/alarm.png" alt="#">
                                     <div class="profile_info_iner">
                                         <h5>Your appointment is on</h5> <?php  
                                         while ($rowss = mysqli_fetch_array($run)) {
@@ -168,8 +168,6 @@ $run = mysqli_query($conn , $s_q);
                                             
                                             <h3 style = "color:white;"> <?php 
                                              echo $rowss['appointment_date']; 
-                                        
-
 
                                         }
                                         ?></h3>
@@ -215,7 +213,6 @@ $run = mysqli_query($conn , $s_q);
                                     <p>Patient</p>
                                     <h5><?php echo $_SESSION['parent_name'] ?></h5>
                                     <div class="profile_info_details">
-                                        <a href="#">My Profile <i class="ti-user"></i></a>
                                         <a href="logout.php">Log Out <i class="ti-shift-left"></i></a>
                                     </div>
                                 </div>
