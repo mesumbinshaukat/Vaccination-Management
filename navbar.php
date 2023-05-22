@@ -155,23 +155,27 @@ $run = mysqli_query($conn , $s_q);
                             <div class="profile_info">
                                 <?php 
                             $date_now = date("Y-m-d");
-                            $a_date =$fetch_data['appointment_date']; ?>
-                              <?php  if (strtotime($date_now) <  strtotime($a_date)) { ?>
+                             ?>
+                              <?php if (isset($fetch_data['appointment_date'])) {
+                               if (strtotime($date_now) >=  strtotime($fetch_data['appointment_date'])) {
+                                
 
-                                    <img class="w-50" src="img/icon/notification.png" alt="#">
+                                ?>
+                                <img class="w-50" src="img/icon/notification.png" alt="#">
                                     <div class="profile_info_iner">
-                                        <?php while ($row = mysqli_fetch_array($run)) {
-                                             $app_date =$row['appointment_date'];
-                                             $date_nows = date("Y-m-d");
-                                            if (strtotime($date_nows) <  strtotime($app_date)) { ?>
-                                             <h5><?php echo $row['appointment_date'] ?></h5>
-
-
                                       
-                            <?php } } }else { ?>
-                                <img class="w-50" src="img/icon/bell.png" alt="#">
+                            <?php } } else { ?>
+                               
+                                   
+                                         <img class="w-50" src="img/icon/bell.png" alt="#">
+
                                 <div class="profile_info_iner">
                                     <h5>No Notification </h5>
+                                    
+                                        
+                                            
+
+
                                     <?php }?>
                                 </div>
                             </div>

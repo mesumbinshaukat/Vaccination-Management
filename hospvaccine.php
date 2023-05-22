@@ -1,10 +1,14 @@
 <?php
 session_start();
+if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
+
+} else {
+    header('location:login.php');
+    exit();
+}
 include('connection.php');
-$id =$_GET['id'];
-$select_query = "SELECT * FROM `hospital_register` WHERE id= '$id'";
-$run_query = mysqli_query($conn , $select_query);
-$fetch_data =mysqli_fetch_array($run_query);
+
+
 
 $p_id = $_SESSION['parent_id'];
 
@@ -14,12 +18,7 @@ $r_squerys = mysqli_query($conn , $s_querys);
 $fetch_array = mysqli_fetch_array($r_squerys);
 
 
-if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
-} else {
-    header('location:login.php');
-    exit();
-}
 
 ?>
 <!DOCTYPE html>
@@ -87,8 +86,17 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
                                 <div class="modal-content ">
                                     <div class="modal-header">
-                                        <h3 class="modal-title">Vaccination Available In : <span class = "fs-1"><?php echo $fetch_data['Hname']?>
-                                    
+                                        <?php $id =$_GET['id'];
+$select_query = "SELECT * FROM `hospital_register` WHERE id= '$id'";
+$run_query = mysqli_query($conn , $select_query);
+$fetch_data =mysqli_fetch_array($run_query);
+
+
+?>
+
+
+                                        <h3 class="modal-title">Vaccination Available In : <span class = "fs-1">
+                                        <?php echo $fetch_data['Hname'] ?>
                                     </span></h3>
                                     </div>
                                     <div class="modal-body">
