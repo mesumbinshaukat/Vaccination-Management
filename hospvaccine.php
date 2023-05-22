@@ -116,12 +116,13 @@ $run_querys = mysqli_query($conn , $select_querys);
 
 
     while ($fetch_datas =mysqli_fetch_array($run_querys)
-) { ?>
+) {     ?>
     <tr>
       <td><h5><?php echo $fetch_datas['Vname']?></h5></td>
       <td><h5><?php echo $fetch_datas['Vtype']?></h5></td>
       
-      <?php if (!empty($fetch_array['id'])) { ?>
+      <?php if (!empty($fetch_array['id'])) { 
+        ?>
 
         <td><a class = "btn btn-success" href="book_slot.php?id=<?php echo $fetch_datas['id']?>">Book Slot</a></td>
 

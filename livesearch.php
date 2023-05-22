@@ -1,13 +1,11 @@
 <?php
 include('connection.php');
 
-
+if(isset($_POST['data_search'])){
 $search_value = $_POST['data_search'];
-$selected_data_fetch = "SELECT * FROM `addvaccine` WHERE Hname LIKE '%{$search_value}%'";
+$selected_data_fetch = "SELECT * FROM `hospital_register` WHERE Hname LIKE '%$search_value%'";
 $run = mysqli_query($conn,$selected_data_fetch);
 
-if ($run) {
-   header('location:allhospital.php');
 }
 ?>
 
@@ -25,24 +23,25 @@ if ($run) {
 <body>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Hospital</th>
-            <th>Vaccination</th>
-            <th>Type</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php while($row=mysqli_fetch_array($run)){ ?>
-        <tr>
-            <td> <?php echo $row['Hname'] ?> </td>
-            <td> <?php echo $row['Vname'] ?> </td>
-            <td> <?php echo $row['Vtype'] ?> </td>
-        </tr>
-        <?php } ?>
-    </tbody>
-</table>
+<div  class="row row-cols-1 row-cols-md-2 g-4 container p-5">
+        <?php while($row = mysqli_fetch_array($run)) { ?>
+
+        <div class="col">
+            <div class="card">
+                <img src="<?php echo $row['Hlogo'] ?>" class="card-img-top text-center" height="300" alt="...">
+                <div class="card-body">
+                    <a class="btn btn-success mt-2"
+                        href="hospvaccine.php?id=<?php echo $row['id'] ?>"><?php echo $row['Hname'] ?></a>
+                    <h5 class="card-text mt-2">Address: <?php echo $row['Haddress'] ?></h5>
+                    <h5 class="card-text">Number: <?php echo $row['Hnumber'] ?></h5>
+
+
+                </div>
+            </div>
+        </div>
+        <?php }?>
+
+    </div>
 
 
 

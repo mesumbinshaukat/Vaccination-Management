@@ -71,7 +71,6 @@ $run = mysqli_query($conn ,$select_query);
             
             <?php  }else { ?>
                   <tr> 
-                  <td> <?php echo $row['b_id'] ?> </td>
                 
                   <td> <?php echo $row['child_name'] ?> </td>
                   <td> <?php echo $row['Pname'] ?> </td>

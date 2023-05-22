@@ -1,7 +1,9 @@
 <?php
 include('connection.php');
 $p_id =  $_SESSION['parent_id'];
-$s_qury = "SELECT * FROM `book_appointment` WHERE Pname = '$p_id'";
+$s_qury = "SELECT *
+FROM book_appointment
+WHERE appointment_date >= date_sub(now(), interval 1 week) AND Pname = '$p_id'";
 $run_it = mysqli_query($conn , $s_qury);
 
 $fetch_data = mysqli_fetch_array($run_it);
@@ -70,8 +72,8 @@ $run = mysqli_query($conn , $s_q);
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <style>
-    body {
-        background-color: light-grey;
+    .navv {
+        background-color: #E5E4E2;
     }
     </style>
 
@@ -128,7 +130,7 @@ $run = mysqli_query($conn , $s_q);
     </nav>
 
 
-    <section class="main_content dashboard_part">
+    <section class="main_content dashboard_part navv">
 
         <div class="container-fluid no-gutters">
             <div class="row">
@@ -139,12 +141,7 @@ $run = mysqli_query($conn , $s_q);
                         </div>
                         <div class="serach_field-area">
                             <div class="search_inner">
-                                <form action="#">
-                                    <div class="search_field">
-                                        <input type="text" placeholder="Search here" id="ID_search">
-                                    </div>
-                                    <button type="submit"> <img src="img/icon/icon_search.svg" alt=""> </button>
-                                </form>
+
                             </div>
                         </div>
 
@@ -153,44 +150,30 @@ $run = mysqli_query($conn , $s_q);
                             <div class=" header_notification_warp d-flex align-items-center">
 
 
-                            <div class="profile_info">
-                                <?php 
-                            $date_now = date("Y-m-d");
-                             ?>
-                              <?php if (isset($fetch_data['appointment_date']) AND $fetch_data['request'] == '1' ) {
-                               if (strtotime($date_now) <  strtotime($fetch_data['appointment_date'])) {
+                                <div class="profile_info">
+                                  
+                                    <?php if (isset($fetch_data['appointment_date']) AND $fetch_data['request'] == '1' ) {
+                               if (mysqli_num_rows($run_it) > 0) {
                                 ?>
-                                <img class="w-50" src="img/icon/alarm.png" alt="#">
+                                    <img class="w-50" src="img/icon/alarm.png" alt="#">
                                     <div class="profile_info_iner">
                                         <h5>Your appointment is on</h5> <?php  
                                         while ($rowss = mysqli_fetch_array($run)) {
                                             ?>
-                                            
-                                            <h3 style = "color:white;"> <?php 
+
+                                        <h3 style="color:white;"> <?php 
                                              echo $rowss['appointment_date']; 
 
                                         }
                                         ?></h3>
 
 
-                                      
-                            <?php } else {  ?>
-                               
-                                   
-                                         <img class="w-50" src="img/icon/bell.png" alt="#">
 
-                                <div class="profile_info_iner">
-                                    <h5>No Notification </h5>
-                                    
-                                        
-                                            
+                                        <?php }  } ?>
 
-
-                                    <?php } } ?>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                          
 
 
 
@@ -207,13 +190,15 @@ $run = mysqli_query($conn , $s_q);
 
 
 
-                            <div class="profile_info">
-                                <img src="img/pfp.jpg" alt="#">
-                                <div class="profile_info_iner">
-                                    <p>Patient</p>
-                                    <h5><?php echo $_SESSION['parent_name'] ?></h5>
-                                    <div class="profile_info_details">
-                                        <a href="logout.php">Log Out <i class="ti-shift-left"></i></a>
+
+                                <div class="profile_info">
+                                    <img src="img/pfp.jpg" alt="#">
+                                    <div class="profile_info_iner">
+                                        <p>Patient</p>
+                                        <h5><?php echo $_SESSION['parent_name'] ?></h5>
+                                        <div class="profile_info_details">
+                                            <a href="logout.php">Log Out <i class="ti-shift-left"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -221,70 +206,69 @@ $run = mysqli_query($conn , $s_q);
                     </div>
                 </div>
             </div>
-        </div>
-        <script src="js/jquery1-3.4.1.min.js"></script>
+            <script src="js/jquery1-3.4.1.min.js"></script>
 
-        <script src="js/popper1.min.js"></script>
+            <script src="js/popper1.min.js"></script>
 
-        <script src="js/bootstrap1.min.js"></script>
+            <script src="js/bootstrap1.min.js"></script>
 
-        <script src="js/metisMenu.js"></script>
+            <script src="js/metisMenu.js"></script>
 
-        <script src="vendors/count_up/jquery.waypoints.min.js"></script>
+            <script src="vendors/count_up/jquery.waypoints.min.js"></script>
 
-        <script src="vendors/chartlist/Chart.min.js"></script>
+            <script src="vendors/chartlist/Chart.min.js"></script>
 
-        <script src="vendors/count_up/jquery.counterup.min.js"></script>
+            <script src="vendors/count_up/jquery.counterup.min.js"></script>
 
-        <script src="vendors/swiper_slider/js/swiper.min.js"></script>
+            <script src="vendors/swiper_slider/js/swiper.min.js"></script>
 
-        <script src="vendors/niceselect/js/jquery.nice-select.min.js"></script>
+            <script src="vendors/niceselect/js/jquery.nice-select.min.js"></script>
 
-        <script src="vendors/owl_carousel/js/owl.carousel.min.js"></script>
+            <script src="vendors/owl_carousel/js/owl.carousel.min.js"></script>
 
-        <script src="vendors/gijgo/gijgo.min.js"></script>
+            <script src="vendors/gijgo/gijgo.min.js"></script>
 
-        <script src="vendors/datatable/js/jquery.dataTables.min.js"></script>
-        <script src="vendors/datatable/js/dataTables.responsive.min.js"></script>
-        <script src="vendors/datatable/js/dataTables.buttons.min.js"></script>
-        <script src="vendors/datatable/js/buttons.flash.min.js"></script>
-        <script src="vendors/datatable/js/jszip.min.js"></script>
-        <script src="vendors/datatable/js/pdfmake.min.js"></script>
-        <script src="vendors/datatable/js/vfs_fonts.js"></script>
-        <script src="vendors/datatable/js/buttons.html5.min.js"></script>
-        <script src="vendors/datatable/js/buttons.print.min.js"></script>
-        <script src="js/chart.min.js"></script>
+            <script src="vendors/datatable/js/jquery.dataTables.min.js"></script>
+            <script src="vendors/datatable/js/dataTables.responsive.min.js"></script>
+            <script src="vendors/datatable/js/dataTables.buttons.min.js"></script>
+            <script src="vendors/datatable/js/buttons.flash.min.js"></script>
+            <script src="vendors/datatable/js/jszip.min.js"></script>
+            <script src="vendors/datatable/js/pdfmake.min.js"></script>
+            <script src="vendors/datatable/js/vfs_fonts.js"></script>
+            <script src="vendors/datatable/js/buttons.html5.min.js"></script>
+            <script src="vendors/datatable/js/buttons.print.min.js"></script>
+            <script src="js/chart.min.js"></script>
 
-        <script src="vendors/progressbar/jquery.barfiller.js"></script>
+            <script src="vendors/progressbar/jquery.barfiller.js"></script>
 
-        <script src="vendors/tagsinput/tagsinput.js"></script>
+            <script src="vendors/tagsinput/tagsinput.js"></script>
 
-        <script src="vendors/text_editor/summernote-bs4.js"></script>
-        <script src="vendors/apex_chart/apexcharts.js"></script>
+            <script src="vendors/text_editor/summernote-bs4.js"></script>
+            <script src="vendors/apex_chart/apexcharts.js"></script>
 
-        <script src="js/custom.js"></script>
+            <script src="js/custom.js"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 
-        <script>
-        $('#ID_search').keyup(function() {
-            var search_word = $('#ID_search').val();
-            $.ajax({
-                url: 'livesearch.php',
-                type: 'POST',
-                data: {
-                    data_search: search_word
-                },
-                success: function(data) {
-                    $('#ID_table').html(data);
-                }
+
+            <script>
+            $('#ID_search').keyup(function() {
+                var search_word = $('#ID_search').val();
+                $.ajax({
+                    url: 'livesearch.php',
+                    type: 'POST',
+                    data: {
+                        data_search: search_word
+                    },
+                    success: function(data) {
+                        $('#ID_table').html(data);
+                    }
+                })
+
+
             })
-
-
-        })
-        </script>
+            </script>
 
 
 </body>

@@ -122,7 +122,7 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
                         <div class="row justify-content-center">
                             <div class="col-lg-6">
                  
-                                <div class="modal-content ">
+                                <div class="modal-content  border border-primary p-4">
                                     <div class="modal-header">
                                         <h3 class="modal-title">Book Appointment for  <?php  echo $fetch['Vname']?></h3>
                                     </div>
