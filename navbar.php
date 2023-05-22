@@ -6,10 +6,11 @@ $run_it = mysqli_query($conn , $s_qury);
 
 $fetch_data = mysqli_fetch_array($run_it);
 
-$s_q = "SELECT * FROM `book_appointment` WHERE Pname = '$p_id'";
+$s_q = "SELECT *
+FROM book_appointment
+WHERE appointment_date > date_sub(now(), interval 1 week) AND Pname = '$p_id'";
+
 $run = mysqli_query($conn , $s_q);
-
-
 
 
 ?>
@@ -157,14 +158,25 @@ $run = mysqli_query($conn , $s_q);
                             $date_now = date("Y-m-d");
                              ?>
                               <?php if (isset($fetch_data['appointment_date'])) {
-                               if (strtotime($date_now) >=  strtotime($fetch_data['appointment_date'])) {
-                                
-
+                               if (strtotime($date_now) <  strtotime($fetch_data['appointment_date'])) {
                                 ?>
                                 <img class="w-50" src="img/icon/notification.png" alt="#">
                                     <div class="profile_info_iner">
+                                        <h5>Your appointment is on</h5> <?php  
+                                        while ($rowss = mysqli_fetch_array($run)) {
+                                            ?>
+                                            
+                                            <h3 style = "color:white;"> <?php 
+                                             echo $rowss['appointment_date']; 
+                                        
+
+
+                                        }
+                                        ?></h3>
+
+
                                       
-                            <?php } } else { ?>
+                            <?php } else {  ?>
                                
                                    
                                          <img class="w-50" src="img/icon/bell.png" alt="#">
@@ -176,7 +188,7 @@ $run = mysqli_query($conn , $s_q);
                                             
 
 
-                                    <?php }?>
+                                    <?php } } ?>
                                 </div>
                             </div>
                         </div>
