@@ -22,7 +22,12 @@ $run = mysqli_query($conn,$selected_data_fetch);
 </head>
 <body>
 
-
+<h4 class="text-center mt-3 "><?php if(mysqli_num_rows($run) > 0){
+    echo "";
+}
+else{
+   echo  "data not found";
+}   ?> </h4>
 <div  class="row row-cols-1 row-cols-md-2 g-4 container p-5">
         <?php while($row = mysqli_fetch_array($run)) { ?>
 

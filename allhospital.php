@@ -177,10 +177,10 @@ body {
 
 <script>
 
+$('#For_search').keyup(function()  {
 
 
-
-$('#ID_search').click(function()  { 
+// $('#ID_search').click(function()  { 
     var search_word = $('#For_search').val();
     $.ajax({
         url: 'livesearch.php',
@@ -194,7 +194,9 @@ $('#ID_search').click(function()  {
     })
 
 
+// });
 });
+
 </script>
 </body>
 
