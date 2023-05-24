@@ -89,7 +89,6 @@ INNER JOIN addvaccine
 ON   book_appointment.Vname = addvaccine.id  WHERE book_appointment.Pname = $P_id" ;
 $run = mysqli_query($conn ,$select_query);
 
-$fetchal= mysqli_fetch_array($run); 
 
 
 
@@ -134,7 +133,7 @@ $fetchal= mysqli_fetch_array($run);
                                 </div>
                             </div>
                         </div>
-                        <h4 class=" mt-4  text-center">Appointment booked </h4>
+                        <h4 class=" mt-4  text-center"><?php echo($fetchal['child_name']) ?> is VACCINATED </h4>
 
                     </div>
                 </div>

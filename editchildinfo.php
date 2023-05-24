@@ -2,36 +2,40 @@
 session_start();
 include('connection.php');
 
+if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
+
+} else {
+   echo ' ERROR 404';
+    exit();
+}
 $C_id = $_GET['id'];
 $s_query = "SELECT * FROM `childinfo` WHERE id = '$C_id'";
 $q_run = mysqli_query($conn , $s_query);
-$fetch_data = mysqli_fetch_array($q_run);
 
 if (isset($_POST['submit'])) {
     $cname = $_POST['Cname'];
     $cgender = $_POST['gender'];
     $c_age = $_POST['Cage'];
     $any_disease= $_POST['disease'];
+    $parent_id = $_POST['p_id'];
   
 
-    $query = "UPDATE `childinfo` SET
-     `child_name`='$cname',`gender`='$cgender',`child_age`='$c_age',`any_disease`='$any_disease' WHERE id = '$C_id'";
+    $query = "UPDATE `childinfo` SET `child_name`=' $cname',`gender`='$cgender',`child_age`='$c_age',`any_disease`='$any_disease',`P_id`='$parent_id ' WHERE id = '$C_id'";
     $runq = mysqli_query($conn , $query);
 
-    if ($runq) {
-        header('location:allchilds.php');
-    }
-
+   if ($runq) {
+    header('location:allchilds.php');
+   }
 
 
 }
 
-if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
-} else {
-    header('location:login.php');
-    exit();
-}
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -77,15 +81,15 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
 </head>
 <style>
-    body{
-         background-color: lightblue;
-    }
+body {
+    background-color: lightblue;
+}
 </style>
 
 
 <body class="">
 
-<?php include('navbar.php')  ?>
+    <?php include('navbar.php')  ?>
 
 
 
@@ -102,42 +106,52 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
                                     <div class="modal-header">
                                         <h3 class="modal-title">Edit Detail</h3>
                                     </div>
+<?php 
+$fetch_data = mysqli_fetch_array($q_run); 
+
+ ?>
+
                                     <div class="modal-body">
-                                        <form method="post">
+                                        <form method="post" >
+                                           
 
                                             <div class="mt-2">
-                                                <input type="text" name="Cname" required value ="<?php echo  $fetch_data['child_name'] ?>" class="form-control form-control-lg "
-                                                    placeholder="Child Name">
+                                                <input type="text" name="Cname" required
+                                                    value="<?php echo  $fetch_data['child_name'] ?>"
+                                                    class="form-control form-control-lg " placeholder="Child Name">
                                             </div>
-                                            <div  class= "mt-3">
+                                            <div class="mt-3">
                                                 <select name="gender" class="form-select form-control form-control-lg">
                                                     <option value="Male">Male </option>
                                                     <option value="Female">Female</option>
-                                                    <option value="Other" >Other</option>
+                                                    <option value="Other">Other</option>
                                                 </select>
-                                            </div>  
+                                            </div>
 
-                                            <input type="hidden"  name= "p_id" value =" <?php  echo $_SESSION['parent_id'] ?>">
+                                            <input type="hidden" name="p_id"
+                                                value=" <?php  echo $_SESSION['parent_id'] ?>">
 
-                                    
+
                                             <div class="mt-3">
-                                                <input type="text" min="1" max="15" name="Cage" class="form-control mt-3 form-control-lg "
+                                                <input type="text" min="1" max="15" name="Cage"
+                                                    class="form-control mt-3 form-control-lg "
                                                     value="<?php echo $fetch_data['child_age']?> ">
                                             </div>
                                             <div class="mt-3">
-                                                <input type="text" name="disease"  class="form-control mt-3 form-control-lg "
-                                                    placeholder="Any Disease" value =" <?php echo  $fetch_data['any_disease'] ?>">
+                                                <input type="text" name="disease"
+                                                    class="form-control mt-3 form-control-lg " placeholder="Any Disease"
+                                                    value=" <?php echo  $fetch_data['any_disease'] ?>">
                                             </div>
 
 
 
-                                        
+
                                             <button class="btn btn-primary form-control mt-4" type="submit"
                                                 name="submit" value="submit">Update</button>
-                                                
+
 
                                         </form>
-                                        
+
 
                                     </div>
                                 </div>

@@ -86,10 +86,9 @@ INNER JOIN parent_register
 ON   book_appointment.Pname = parent_register.id 
 
 INNER JOIN addvaccine
-ON   book_appointment.Vname = addvaccine.id  WHERE book_appointment.Pname = $P_id" ;
+ON   book_appointment.Vname = addvaccine.id  WHERE book_appointment.Pname = '$P_id'" ;
 $run = mysqli_query($conn ,$select_query);
 
-$fetchal= mysqli_fetch_array($run); 
 
 
 
