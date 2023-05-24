@@ -22,7 +22,7 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Hospital</title>
+    <title>MY CHILDS</title>
     <link rel="icon" href="img/logo.png" type="image/png">
 
     <link rel="stylesheet" href="css/bootstrap1.min.css" />

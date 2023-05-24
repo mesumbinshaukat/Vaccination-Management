@@ -20,7 +20,7 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Hospital</title>
+    <title>BOOK HOSPITAL</title>
     <link rel="icon" href="img/logo.png" type="image/png">
 
     <link rel="stylesheet" href="css/bootstrap1.min.css" />
@@ -88,9 +88,9 @@ body {
                                 </form>
                             </div>
                         </div>
-                        <div id="ID_table">
-                        </div>
-    <div id="none" class="row g-4 container p-5">
+                        <div id="ID_table" >
+                        
+    <div id="none" class="row row-cols-1 row-cols-md-2 g-4 container p-5 ">
         <?php while($row = mysqli_fetch_array($q_run)) { ?>
 
         <div class="col">
@@ -110,7 +110,7 @@ body {
 
     </div>
 
-      
+    </div>
 
     
 

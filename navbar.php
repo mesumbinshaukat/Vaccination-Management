@@ -106,7 +106,7 @@ $run = mysqli_query($conn , $s_q);
 
 
 
-            <a class="has-arrow" href="#" style="text-decoration: none;">
+            <a class="has-arrow" href="Appointment.php" style="text-decoration: none;">
                 <li class="fs-5 mt-4 "><span style="color: black;">My-Appointment</span></li>
             </a>
 

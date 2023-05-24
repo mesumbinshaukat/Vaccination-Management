@@ -38,7 +38,7 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Hospital</title>
+    <title>ADD CHILD DETAILS</title>
     <link rel="icon" href="img/logo.png" type="image/png">
 
     <link rel="stylesheet" href="css/bootstrap1.min.css" />
@@ -75,8 +75,11 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
 </head>
 <style>
-    body{
-         background-color: lightblue;
+    
+    .bod{
+
+        background-color: lightblue;
+        border-radius : 20px;
     }
 </style>
 
@@ -97,9 +100,9 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
                 <div class="col-lg-12">
                     <div class="mb_30">
                         <div class="row justify-content-center">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 bod">
                  
-                                <div class="modal-content mt-4 border border-primary p-4 ">
+                                <div class="modal-content mt-4 bod p-4 ">
                                     <div class="modal-header">
                                         <h3 class="modal-title">Add Child Detail</h3>
                                     </div>

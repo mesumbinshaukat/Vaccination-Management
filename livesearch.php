@@ -26,7 +26,7 @@ $run = mysqli_query($conn,$selected_data_fetch);
 <div  class="row row-cols-1 row-cols-md-2 g-4 container p-5">
         <?php while($row = mysqli_fetch_array($run)) { ?>
 
-        <div class="col">
+        <div class="col ">
             <div class="card">
                 <img src="<?php echo $row['Hlogo'] ?>" class="card-img-top text-center" height="300" alt="...">
                 <div class="card-body">
