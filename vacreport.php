@@ -129,7 +129,7 @@ $fetchal= mysqli_fetch_array($run);
                                     </h5>
                                 </div>
                                 <div class="col text-center">
-                                    <h5><span style="color:grey;">Vaccine:</span><b>
+                                    <h5><span style="color:grey;">Hospital:</span><b>
                                             <?php echo strtoupper($fetchal['Hname']) ?></b> </h5>
                                 </div>
                             </div>
