@@ -117,7 +117,7 @@ $run = mysqli_query($conn , $s_q);
             </a>
 
 
-            <a class="has-arrow" href="#" style="text-decoration: none;">
+            <a class="has-arrow" href="vacreport.php" style="text-decoration: none;">
                 <li class="mt-4  fs-5"> <span style="color: black;">Report</span></li>
             </a>
 
