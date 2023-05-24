@@ -45,9 +45,9 @@
 
 
 
-<nav class="sidebar">
+    <nav class="sidebar">
         <div class="logo d-flex justify-content-between">
-            <img src="img/logo3.png" alt="">
+            <img src="../img/logo3.png" alt="">
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
@@ -55,7 +55,7 @@
         <ul id="sidebar_menu" class="p-2">
 
             <li class="side_menu_title">
-                <a href="vacrequest.php" style="text-decoration: none;"><span>Dashboard</span></a>
+                <a href="admin.php" style="text-decoration: none;"><span>Dashboard</span></a>
             </li>
 
             <a href="vacrequest.php" style="text-decoration: none;">
@@ -90,7 +90,7 @@
 
         </ul>
     </nav>
-    
+
 
 
     <section class="main_content dashboard_part">
@@ -103,11 +103,11 @@
                             <i class="ti-menu"></i>
                         </div>
                         <div class="serach_field-area">
-                          <h2><b>Admin Panel</b></h2>
-                          <hr>
+                            <h2><b>Admin Panel</b></h2>
+                            <hr>
                         </div>
                         <div class="header_right d-flex justify-content-between align-items-center">
-                            
+
                             <div class="profile_info">
                                 <img src="../img/admin.jpg" alt="#">
                                 <div class="profile_info_iner">
@@ -123,10 +123,10 @@
                 </div>
             </div>
         </div>
-        
-        
-   
-      
+
+
+
+
 
 
         <script src="../js/jquery1-3.4.1.min.js"></script>
