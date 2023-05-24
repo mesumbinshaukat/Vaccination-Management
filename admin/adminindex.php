@@ -45,54 +45,51 @@
 
 
 
-    <nav class="sidebar">
+<nav class="sidebar">
         <div class="logo d-flex justify-content-between">
-            <a href="index.html"><img src="../img/logo3.png" alt=""></a>
+            <img src="img/logo3.png" alt="">
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
         </div>
-        <ul id="sidebar_menu">
-            
+        <ul id="sidebar_menu" class="p-2">
+
             <li class="side_menu_title">
-                <span>Dashboard</span>
-            </li>
-            <li class="">
-                <a class="has-arrow" href="vacrequest.php">
-                    <span>Parent-Request</span>
-                </a>
+                <a href="vacrequest.php" style="text-decoration: none;"><span>Dashboard</span></a>
             </li>
 
-            <li class="">
-                <a class="has-arrow" href="allhospital.php">
-                    <span>Book-Hospitals</span>
-                </a>
-            </li>
+            <a href="vacrequest.php" style="text-decoration: none;">
+                <li class="fs-5 mt-4 "><span style="color: black;">Vaccination Request</span></li>
+            </a>
 
-            <li class="">
-                <a class="has-arrow" href="vaccination_report.php">
-                    <span>Vaccination Report</span>
-                </a>
-            </li>
+            <a href="hospital_credentials.php" style="text-decoration: none;">
+                <li class="fs-5 mt-4 "><span style="color: black;">Hospital Credentials</span></li>
+            </a>
 
-            <li class="">
-                <a class="has-arrow" href="allchilds.php">
-                    <span>My-Childs</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="has-arrow" href="#">
-                    <span>Report</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="adminlogout.php">
-                    <span>Logout</span>
-                </a>
-            </li>
+
+
+            <a href="vaccination_report.php" style="text-decoration: none;">
+                <li class="fs-5 mt-4 "><span style="color: black;">Vaccination Report</span></li>
+            </a>
+
+
+
+            <a href="vaccinated_report.php" style="text-decoration: none;">
+                <li class="fs-5 mt-4 "><span style="color: black;">Patients Vaccinated</span></li>
+            </a>
+
+
+            <a href="vacreport.php" style="text-decoration: none;">
+                <li class="mt-4  fs-5"> <span style="color: black;">Report</span></li>
+            </a>
+
+
+            <a href="logout.php" style="text-decoration: none;">
+                <li class=" mt-4 fs-5"><span style="color: black;">Logout</span></li>
+            </a>
+
         </ul>
     </nav>
-
     
 
 
