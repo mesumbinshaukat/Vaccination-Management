@@ -70,8 +70,8 @@
             </li>
 
             <li class="">
-                <a class="has-arrow" href="#">
-                    <span>My-Appointment</span>
+                <a class="has-arrow" href="vaccination_report.php">
+                    <span>Vaccination Report</span>
                 </a>
             </li>
 
