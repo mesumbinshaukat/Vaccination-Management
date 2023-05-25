@@ -167,21 +167,21 @@ overflow-x: hidden;
                                     <div class="modal-body">
                                         <form method="post" enctype="multipart/form-data">
                                             <div class="mb-3">
-                                                <input type="text" class="form-control form-control-lg" name="Uname"
+                                                <input type="text" class="border border-3 border-dark  form-control form-control-lg" name="Uname"
                                                     placeholder="Full Name">
                                             </div>
                                             <div class="mb-3">
-                                                <input type="text" class="form-control form-control-lg" name="Uemail"
+                                                <input type="text" class="border border-3 border-dark  form-control form-control-lg" name="Uemail"
                                                     placeholder="Enter your email">
                                             </div>
                                             <div class="mb-3">
-                                                <input type="password" class="form-control form-control-lg" name="pass"
+                                                <input type="password" class="border border-3 border-dark  form-control form-control-lg" name="pass"
                                                     placeholder="Password">
                                             </div>
 
                                             <div name="drop-down">
                                                 <h6>Register AS Hospital</h6>
-                                                <select name="travel" id="travel" class=" form-select form-control form-control-lg  "
+                                                <select name="travel" id="travel" class=" border border-3 border-dark  form-select form-control form-control-lg  "
                                                     onChange=showHide()>
                                                     <option value="1">Yes</option>
                                                     <option value="0" selected>No</option>
@@ -191,18 +191,18 @@ overflow-x: hidden;
                                             <div class="mt-3" name="hidden-panel" id="hidden-panel">
 
                                                 <input type="text" name="hname" id="country"
-                                                    class="form-control form-control-lg" placeholder="Hospital Name" />
+                                                    class="border border-3 border-dark  form-control form-control-lg" placeholder="Hospital Name" />
 
                                                 <input type="text" name="haddress" id="country"
-                                                    class="form-control form-control-lg mt-3"
+                                                    class="border border-3 border-dark  form-control form-control-lg mt-3"
                                                     placeholder="Hospital Address" />
 
                                                 <input type="text" name="hadminno" id="country"
-                                                    class="form-control form-control-lg mt-3"
+                                                    class="border border-3 border-dark  form-control form-control-lg mt-3"
                                                     placeholder="Hospital Admin_NO." />
 
                                                 <input type="file" name="img" id="country"
-                                                    class="form-control form-control-lg mt-3" />
+                                                    class="border border-3 border-dark  form-control form-control-lg mt-3" />
 
 
                                             </div>

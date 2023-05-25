@@ -75,6 +75,7 @@ $run = mysqli_query($conn , $s_q);
     .navv {
         background-color: #E5E4E2;
     }
+    
     </style>
 
 </head>
@@ -174,21 +175,6 @@ $run = mysqli_query($conn , $s_q);
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                                 <div class="profile_info">

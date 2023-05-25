@@ -52,7 +52,7 @@
                 <i class="ti-close"></i>
             </div>
         </div>
-        <ul id="sidebar_menu" class="p-2">
+        <ul id="sidebar_menu" class="p-4">
 
             <li class="side_menu_title">
                 <a href="admin.php" style="text-decoration: none;"><span>Dashboard</span></a>
@@ -79,12 +79,10 @@
             </a>
 
 
-            <a href="vacreport.php" style="text-decoration: none;">
-                <li class="mt-4  fs-5"> <span style="color: black;">Report</span></li>
-            </a>
+            
 
 
-            <a href="logout.php" style="text-decoration: none;">
+            <a href="adminlogout.php" style="text-decoration: none;">
                 <li class=" mt-4 fs-5"><span style="color: black;">Logout</span></li>
             </a>
 
