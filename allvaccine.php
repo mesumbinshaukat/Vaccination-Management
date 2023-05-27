@@ -33,9 +33,9 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
 
     <div class="container">
-        <table class="table table-bordered">
+        <table class="table table-bordered ">
 
-            <tr>
+            <tr class = "border border-dark">
 
                 <th>vaccination Name</th>
                 <th>vaccination Type</th>

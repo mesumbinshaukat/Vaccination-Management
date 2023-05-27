@@ -47,6 +47,12 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
 </head>
+<style>
+.navv{
+    background-color: #E5E4E2;
+}
+
+</style>
 <body class="crm_body_bg">
 
 
@@ -104,7 +110,7 @@
 </nav>
 
 
-<section class="main_content dashboard_part">
+<section class="main_content dashboard_part navv">
 
 <div class="container-fluid no-gutters">
 <div class="row">

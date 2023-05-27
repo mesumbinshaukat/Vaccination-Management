@@ -34,9 +34,9 @@ $run = mysqli_query($conn ,$select_query);
 
 
 <div class="container">
-<table class ="table table-bordered">
+<table class ="table table-bordered ">
    
-<tr>
+<tr class = "border border-dark">
 
 <th>child name</th>
 <th>Parent Name</th>
