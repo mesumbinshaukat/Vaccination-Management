@@ -81,8 +81,8 @@ $fetch_array = mysqli_fetch_array($r_squerys);
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="mb_30">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6">
+                        <div class="row justify-content-center ">
+                            <div class="col-lg-6 border border-dark p-3">
 
                                 <div class="modal-content ">
                                     <div class="modal-header">

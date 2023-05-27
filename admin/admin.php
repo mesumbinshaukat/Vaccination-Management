@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('../connection.php');
 if (isset($_SESSION['aemail']) || isset($_SESSION['apass'] )) {
 
 } else {
@@ -9,7 +10,7 @@ if (isset($_SESSION['aemail']) || isset($_SESSION['apass'] )) {
 
 
 ?>
-</html>
+<html>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -57,8 +58,33 @@ if (isset($_SESSION['aemail']) || isset($_SESSION['apass'] )) {
 
 
 
-<div class="main_content_iner ">
-        <div class="container-fluid p-0">
+<?php
+    
+    $sq = "SELECT COUNT(*) AS `count` FROM `parent_register`  " ;
+    $run = mysqli_query($conn , $sq);
+    $fetchdata = mysqli_fetch_array($run);
+
+    $sq1 = "SELECT COUNT(*) AS `count` FROM `hospital_register` " ;
+    $run1 = mysqli_query($conn , $sq1);
+    $fetchdata1 = mysqli_fetch_array($run1);
+
+    $sq2 = "SELECT COUNT(*) AS `count` FROM `addvaccine` " ;
+    $run2 = mysqli_query($conn , $sq2);
+    $fetchdata2 = mysqli_fetch_array($run2);
+
+    $sq3 = "SELECT COUNT(*) AS `count` FROM `book_appointment`  "  ;
+    $run3 = mysqli_query($conn , $sq3);
+    $fetchdata3 = mysqli_fetch_array($run3);
+
+    
+     ?>
+    
+
+<h1 class = "text-center"><b>Dashboard</b></h1>
+
+    <hr>
+                <div class="main_content_iner ">
+        <div class="container-fluid p-5">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="single_element">
@@ -68,42 +94,43 @@ if (isset($_SESSION['aemail']) || isset($_SESSION['apass'] )) {
                                     <div class="quick_activity_wrap">
                                         <div class="single_quick_activity d-flex">
                                             <div class="icon">
-                                                <img src="../img/icon/man.svg" alt="">
+                                                <img src="../img/icon/parent.png" alt="">
                                             </div>
                                             <div class="count_content">
-                                                <h3><span class="counter">520</span> </h3>
-                                                <p>Doctors</p>
+                                                <h3><span class="counter"><?php echo $fetchdata['count']?></span></h3>
+                                                <p>Parent Registered</p>
                                             </div>
                                         </div>
                                         <div class="single_quick_activity d-flex">
                                             <div class="icon">
-                                                <img src="../img/icon/cap.svg" alt="">
+                                                <img src="../img/icon/hosp.png" alt="">
                                             </div>
                                             <div class="count_content">
-                                                <h3><span class="counter">6969</span> </h3>
-                                                <p>Nurses</p>
+                                                <h3><span class="counter"><?php echo $fetchdata1['count'] ?> </span> </h3>
+                                                <p>Hospital- Regestered</p>
                                             </div>
                                         </div>
                                         <div class="single_quick_activity d-flex">
                                             <div class="icon">
-                                                <img src="../img/icon/wheel.svg" alt="">
+                                                <img src="../img/icon/vac.png" alt="">
                                             </div>
                                             <div class="count_content">
-                                                <h3><span class="counter">7510</span> </h3>
-                                                <p>Patients</p>
+                                                <h3><span class="counter"><?php echo $fetchdata2['count'] ?></span> </h3>
+                                                <p>Vaccines- Available</p>
                                             </div>
                                         </div>
                                         <div class="single_quick_activity d-flex">
                                             <div class="icon">
-                                                <img src="../img/icon/pharma.svg" alt="">
+                                                <img src="../img/icon/app.png" alt="">
                                             </div>
                                             <div class="count_content">
-                                                <h3><span class="counter">2110</span> </h3>
-                                                <p>Pharmacusts</p>
+                                                <h3><span class="counter"><?php echo $fetchdata3['count'] ?></span> </h3>
+                                                <p>Appointment requests</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

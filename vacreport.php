@@ -68,7 +68,7 @@ if (isset($_SESSION['hospital_name']) || isset($_SESSION['parent_id'])) {
 
 
 ?>
-<div class="text-center"><h2><b>Appointments</b> </h2></div>
+<div class="text-center"><h2><b>Reports</b> </h2></div>
 <hr>
 
 
