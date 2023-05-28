@@ -62,18 +62,19 @@ $html =
 #customers {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 #customers td, #customers th {
     
   border: 1px solid black;
   padding: 10px;
+  text-align:center;
 }
 
 
 #customers th {
-  padding-top: 12px;
+  padding-top: 0px;
   padding-bottom: 12px;
   
   background-color: lightblue;
@@ -89,7 +90,9 @@ text-alighn:center;
 
 }
 thead{
-    margin-top:50px;}
+    margin-top:50px;
+
+}
 </style>
 </head>
 <body>
@@ -126,8 +129,28 @@ thead{
 
 <thead>
 <tr>
+  <th scope="col">Child Age</th>
+  <th scope="col">Gender</th>
+  
+
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>'. $fetchall['child_age'] .'</td>
+<td>'. $fetchall['gender'] .'</td>
+
+
+</tr>
+
+
+</tbody>
+
+<thead>
+<tr>
  
-  <th scope="col">Vaccination</th>
+  <th scope="col">Vaccine</th>
   <th scope="col">Vaccination Date</th>
 
 </tr>
@@ -148,8 +171,10 @@ thead{
 
 
 <h3>Vaccinated</h3>
-<p>Adress :'. $fetchall['Haddress'] .'</p>
-<p>Email :'. $fetchall['Hemail'] .'</p>
+<p>Hospital Adress :'. $fetchall['Haddress'] .'</p>
+<p>Hospital Email :'. $fetchall['Hemail'] .'</p>
+<p>Hospital Number :'. $fetchall['Hnumber'] .'</p>
+
 
 </div>
 
