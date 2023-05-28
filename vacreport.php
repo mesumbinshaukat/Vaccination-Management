@@ -134,6 +134,8 @@ $run = mysqli_query($conn ,$select_query);
                             </div>
                         </div>
                         <h4 class=" mt-4  text-center"><?php echo($fetchal['child_name']) ?> is VACCINATED </h4>
+                        <a href="pdf.php" class = "btn btn-dark d-flex justify-content-center" target="_blank">GENERATE PDF</a>
+                        
 
                     </div>
                 </div>
